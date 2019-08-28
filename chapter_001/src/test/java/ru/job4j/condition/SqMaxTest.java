@@ -12,5 +12,11 @@ public class SqMaxTest {
         assertThat (result, is(4));
     }
 
+    @Test
+    public void whenthird8() {
+        int result = SqMax.max(4, 3, 8, 1);
+        assertThat (result, is(8));
+    }
+
 
 }
