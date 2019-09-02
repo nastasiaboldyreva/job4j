@@ -12,7 +12,7 @@ public class Board {
                     screen.append(" ");
                 }
             }
-            screen.append(" ");
+            screen.append("\n");
         }
         return screen.toString();
     }
