@@ -12,10 +12,14 @@ public class FindLoopIndex {
         return rst;
     }
 
-    public int indexOf(int[] data, int el, int start, int finish) {
+    public static int indexOf(int[] data, int el, int start, int finish) {
         int rst = -1;
-        for (int i=start; i<finish; i++) {
-            rst = data[el];
+        for (int i=0; i<data.length; i++) {
+            data[0] = start;
+            data[data.length-1]=finish;
+            if (data[i]==el) {
+                rst = i;
+            }
         }
         return rst;
     }
