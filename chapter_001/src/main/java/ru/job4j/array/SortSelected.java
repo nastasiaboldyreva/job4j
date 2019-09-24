@@ -4,10 +4,9 @@ public class SortSelected {
 
     public static int[] sort(int[] data) {
         int min = MinDiapason.findMin(data, 0, data.length);
-        int index = FindLoop.indexOf(data, min, 0, data.length);
-        for (int k = 0; k < data.length; k++) {
-            data[0]=min;
-        }
+        int index = FindLoopIndex.indexOf(data, min, 0, data.length);
+
+
         return data;
     }
 }
