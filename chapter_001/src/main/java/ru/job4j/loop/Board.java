@@ -1,20 +1,23 @@
 package ru.job4j.loop;
 
 public class Board {
-    public String paint( int width, int height) {
-        StringBuilder screen = new StringBuilder();
-        String ln = System.lineSeparator();
-        for( int i = 0; i < height ; i++ ) {
-            for(int j = 0; j < width; j++) {
-                if((i+j)%2==0) {
-                    screen.append("X");
-                } else {
-                    screen.append(" ");
+    public static void paint(int width, int height) {
+        for (int row=0; row<height; row++) {
+            for (int cell=0; cell<width; cell++) {
+                if((row+cell)%2==0) {
+                    System.out.print("X");
+                }
+                else{
+                    System.out.print(" ");
                 }
             }
-            screen.append("\n");
+            System.out.println();
         }
-        return screen.toString();
     }
 
+    public static void main(String[] args) {
+        paint(3,3);
+        System.out.println();
+        paint(4,4);
+    }
 }
