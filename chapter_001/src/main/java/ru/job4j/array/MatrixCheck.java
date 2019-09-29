@@ -9,17 +9,11 @@ public class MatrixCheck {
                 System.out.print(sign);
                 for (int k = 0; k < board.length; k++) {
                     if ((board[row][2]=='X')&
-                            (board[row][0]=='_')&
-                            (board[row][1]=='_')&
-                            (board[row][3]=='_') &
-                            (board[row][4]=='_')) {
+                            (board[row][k]=='_')) {
                         result=true;
                     }
                     else if ((board[1][cell]=='X') &
-                            (board[0][cell]=='_')&
-                            (board[2][cell]=='_')&
-                            (board[3][cell]=='_')&
-                            (board[4][cell]=='_')) {
+                            (board[k][cell]=='_')) {
                         result=true;
                     }
                 }
