@@ -8,12 +8,18 @@ public class MatrixCheck {
                 char sign = board[row][cell];
                 System.out.print(sign);
                 for (int k = 0; k < board.length; k++) {
-                    if ((board[row][2]=='X')&
-                            (board[row][k]=='_')) {
-                        result=true;
+                    int vert = 0;
+                    int gor = 0;
+                    if (board[row][cell]=='X') {
+
+                            if (board[row][vert]=='X') {
+                                vert++;
+                            }
+                            if (board[gor][cell]=='X') {
+                                gor++;
+                            }
                     }
-                    else if ((board[1][cell]=='X') &
-                            (board[k][cell]=='_')) {
+                    if ((vert==board.length)|(gor==board.length)) {
                         result=true;
                     }
                 }
@@ -56,4 +62,5 @@ public class MatrixCheck {
         System.out.println("A board has a winner : " + lose);
     }
 }
+
 
