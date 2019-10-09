@@ -1,8 +1,9 @@
 package ru.job4j.loop;
 
 import org.junit.Test;
+
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 
 public class FitnessTest {
@@ -17,7 +18,7 @@ public class FitnessTest {
     public void whenIvanLessByOneNik() {
         Fitness fit = new Fitness();
         int month = fit.calc(90, 95);
-        assertThat(month,is(1));
+        assertThat(month, is(1));
     }
 
     @Test

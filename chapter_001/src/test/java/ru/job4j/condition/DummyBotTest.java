@@ -1,6 +1,7 @@
 package ru.job4j.condition;
 
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -13,7 +14,7 @@ import static org.junit.Assert.assertThat;
 
 public class DummyBotTest {
     @Test
-    public void whenGreetBot(){
+    public void whenGreetBot() {
         DummyBot bot = new DummyBot();
         assertThat(
                 bot.answer("Привет, Бот."),

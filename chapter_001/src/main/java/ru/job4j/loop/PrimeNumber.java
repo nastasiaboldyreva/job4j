@@ -3,7 +3,7 @@ package ru.job4j.loop;
 public class PrimeNumber {
 
     public int calc(int x) {
-        int count=0;
+        int count = 0;
         for (int num = 2; num <= x; num++) {
             boolean prime = true;
             for (int i = 2; i < num; i++) {
@@ -12,8 +12,8 @@ public class PrimeNumber {
                     break;
                 }
             }
-            if (prime==true) {
-                count ++;
+            if (prime) {
+                count++;
             }
         }
         return count;
