@@ -6,6 +6,8 @@ public class Merge {
 
     public int[] merge(int[] left, int[] right) {
         int[] rsl = new int[left.length + right.length];
+
+
         for (int i=0; i < rsl.length; i++) {
             for (int j=0; j < left.length; j++) {
                 for (int k=0; k < right.length; k++) {
@@ -14,14 +16,16 @@ public class Merge {
                     } else if (right[k] < left[k]){
                         rsl[k] = right[k];
                     }
-                    while (right[k] > left[left.length-1]) {
-                        right[k]++;
-                        rsl[k]=right[k];
+
+                    if ((right.length-1) < (left.length-1)) {
+                        left[k]=k+1;
+
                     }
-                    while (left[k] > right[right.length-1]) {
-                        left[k]++;
-                        rsl[k]=left[k];
+                    else if ((left.length-1) < (right.length-1)) {
+                        right[k]=k+1;
+
                     }
+
                 }
             }
         }
