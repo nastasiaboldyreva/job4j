@@ -20,6 +20,7 @@ public class Merge {
                     if ((right.length-1) < (left.length-1)) {
                         left[k]=k+1;
 
+
                     }
                     else if ((left.length-1) < (right.length-1)) {
                         right[k]=k+1;
