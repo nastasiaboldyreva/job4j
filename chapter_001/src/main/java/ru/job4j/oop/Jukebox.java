@@ -15,8 +15,9 @@ public class Jukebox {
     }
 
     public static void main(String[] args) {
-        Student petya = new Student();
-        petya.music();
+        Jukebox sony = new Jukebox();
+        int position = 1 ;
+        sony.music(position);
     }
 }
 
