@@ -11,7 +11,7 @@ public class TriangleOopTest {
         //Создаем объект треугольник
         TriangleOop triangleoop = new TriangleOop();
         //Вычисляем площадь
-        double result = triangleoop.area(0, 0, 0, 2, 2, 0);
+        double result = triangleoop.area();
         //Задаем ожидаемый результат
         double expected = 2D;
         //Проверяем результат и ожидаемое значение
