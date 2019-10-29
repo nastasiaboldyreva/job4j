@@ -14,7 +14,9 @@ public class Point3dTest {
         int z1 = 0;
         int z2 = 0;
         int expected = 2;
-        double out = Point3d.distance3d(x1, y1, x2, y2, z1, z2);
+        Point3d first = new Point3d(x1, y1, z1);
+        Point3d second = new Point3d(x2, y2, z2);
+        double out = first.distance3d(second);
         Assert.assertEquals(expected, out, 0.0001);
     }
 
