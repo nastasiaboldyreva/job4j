@@ -13,14 +13,14 @@ public class TriangleOop {
     }
 
     public double period(double a, double b, double c) {
-        return -1;
+        return (a + b + c) / 2;
     }
 
     public double area() {
         double rsl = -1;
-        double a = first.distance(second);
-        double b = second.distance(third);
-        double c = first.distance(third);
+        double a = first.distanceOop(second);
+        double b = first.distanceOop(third);
+        double c = second.distanceOop(third);
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
@@ -29,7 +29,7 @@ public class TriangleOop {
     }
 
     private boolean exist(double a, double c, double b) {
-        return false;
+        return a + b > c && b + c > a && a + c > a;
     }
 
 }
