@@ -20,7 +20,6 @@ public class Shop {
         System.out.println();
         System.out.println("Удаляем значение из ячейки с индексом 1");
         productsdelete[1] = null;
-
         for (int i = 0; i < productsdelete.length; i++) {
             ProductDelete product = productsdelete[i];
             if (product != null) {
@@ -43,20 +42,18 @@ public class Shop {
             }
         }
     }
-
-        public ProductDelete[] delete(ProductDelete[] productsdelete, int index) {
-
-            System.out.println();
-            System.out.println("Заменим ячейку с индексом index на нулевую ссылку");
-            productsdelete[index] = null;
+    ProductDelete[] delete(ProductDelete[] productsdelete, int index) {
+        System.out.println();
+        System.out.println("Заменим ячейку с индексом index на нулевую ссылку");
+        productsdelete[index] = null;
+        for (int i = 0; i < productsdelete.length; i ++) {
             productsdelete[index] = productsdelete[index + 1];
-            for (int i = 0; i < productsdelete.length; i ++) {
-                ProductDelete product = productsdelete[i];
-                if (product != null) {
-                    System.out.println(product.getName());
-                } else {
-                    System.out.println("null");
-                }
+            ProductDelete product = productsdelete[i];
+            if (product != null) {
+                System.out.println(product.getName());
+            } else {
+                System.out.println("null");
             }
         }
+    }
 }
