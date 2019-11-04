@@ -11,7 +11,7 @@ public class Matches {
             System.out.println("Игра 11 спичек. Выигрывает тот, кто заберет последние спички. выберите от 1 до 3 спичек");
             for (int i = 1; i <11; i++) {
                 int select = Integer.valueOf(input.nextLine());
-                int left = 11 - select;
+                int left = 11 - select*i;
                 if (left > 0) {
                     if (select <=3) {
                         System.out.println("Спасибо. Игра продолжается");
