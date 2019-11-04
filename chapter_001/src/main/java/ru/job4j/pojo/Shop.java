@@ -41,6 +41,7 @@ public class Shop {
                 System.out.println("null");
             }
         }
+
     }
     ProductDelete[] delete(ProductDelete[] productsdelete, int index) {
         System.out.println();
@@ -54,6 +55,6 @@ public class Shop {
             } else {
                 System.out.println("null");
             }
-        }
+        } return productsdelete;
     }
 }
