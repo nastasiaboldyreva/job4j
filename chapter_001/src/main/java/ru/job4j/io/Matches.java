@@ -9,7 +9,7 @@ public class Matches {
         boolean run = true;
         while (run) {
             System.out.println("Игра 11 спичек. Выигрывает тот, кто заберет последние спички. выберите от 1 до 3 спичек");
-            for (int i = 1; i <11; i++) {
+            for (int i = 11; i > 0; i++) {
                 int select = Integer.valueOf(input.nextLine());
                 int left = 11 - select*i;
                 if (left > 0) {
@@ -24,6 +24,21 @@ public class Matches {
                     break;
                 }
             }
+
+
+
+
+//            for (int i = 1; i <11; i++) {
+//                int select = Integer.valueOf(input.nextLine());
+//                int left = 11 - select*i;
+//                if (left > 0) {
+//                    if (select <=3) {
+//                        System.out.println("Спасибо. Игра продолжается");
+//                    } else {
+//                        System.out.println(("Вы ввели не то число"));
+//                    }
+//                }
+
 
 
 
