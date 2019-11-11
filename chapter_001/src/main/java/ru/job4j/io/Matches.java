@@ -6,28 +6,18 @@ public class Matches {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        boolean run = true;
-        while (run) {
             System.out.println("Игра 11 спичек. Выигрывает тот, кто заберет последние спички. выберите от 1 до 3 спичек");
             System.out.println("Введите число от 1 до 3");
             int quantity = 11;
             while (quantity > 0) {
-                int select = Integer.valueOf(input.nextLine());
-                int left = 11 - select;
-                if (left > 0) {
-                    if (select == 1)  {
-                        System.out.println("Игра продолжается. Введите число от 1 до 3");
-                    } if (select == 2)  {
-                        System.out.println("Игра продолжается. Введите число от 1 до 3");
-                    } if (select == 3)  {
-                        System.out.println("Игра продолжается. Введите число от 1 до 3");
-                    } else if (select > 3) {
-                        System.out.println("Вы ввели число больше 3.");
-                    }
+                int select = Integer.parseInt(input.nextLine());
+                if (select > 0 && select < 4) {
+                    quantity = quantity - select;
+                    System.out.println("осталось" + quantity + "спичек");
+                } else {
+                    System.out.println("Введите верное количество от 1 до 3");
                 }
-
             }
-        }
     }
 }
 
