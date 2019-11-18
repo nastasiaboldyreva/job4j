@@ -9,15 +9,33 @@ public class Matches {
             System.out.println("Игра 11 спичек. Выигрывает тот, кто заберет последние спички. выберите от 1 до 3 спичек");
             System.out.println("Введите число от 1 до 3");
             int quantity = 11;
-            while (quantity > 0) {
-                int select = Integer.parseInt(input.nextLine());
-                if (select > 0 && select < 4) {
-                    quantity = quantity - select;
+            while (quantity >= 0) {
+                System.out.println("Ходит игрок номер 1");
+                int selectone = Integer.parseInt(input.nextLine());
+                if (selectone > 0 && selectone < 4) {
+                    quantity = quantity - selectone;
                     System.out.println("осталось" + quantity + "спичек");
-                } else {
+                    if (quantity == 0) {
+                        System.out.println("Выиграл игрок номер 1");
+                    }
+                }
+                else {
+                    System.out.println("Введите верное количество от 1 до 3");
+                }
+                System.out.println("Ходит игрок номер 2");
+                int selecttwo = Integer.parseInt(input.nextLine());
+                if (selecttwo > 0 && selecttwo < 4) {
+                    quantity = quantity - selecttwo;
+                    System.out.println("осталось" + quantity + "спичек");
+                    if (quantity == 0) {
+                        System.out.println("Выиграл игрок номер 2");
+                    }
+                }
+                else {
                     System.out.println("Введите верное количество от 1 до 3");
                 }
             }
+
     }
 }
 
