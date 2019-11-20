@@ -10,10 +10,10 @@ public class Surgeon extends Doctor {
     }
 
     public String getName() {
-
+        return bandage;
     }
 
     public String getSurname() {
-
+        return scalpel;
     }
 }

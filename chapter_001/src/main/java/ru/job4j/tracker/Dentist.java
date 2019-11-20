@@ -5,7 +5,7 @@ public class Dentist extends Doctor {
     public String teeth;
 
     public void treatCaries() {
-
     }
+
 
 }

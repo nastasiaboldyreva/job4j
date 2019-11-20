@@ -13,7 +13,7 @@ public class Doctor extends Profession {
     }
 
     public String getName() {
-
+        return drug;
     }
 
 }

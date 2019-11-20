@@ -9,6 +9,6 @@ public class Engineer extends Profession {
     }
 
     public String getEducation() {
-
+        return talent;
     }
 }
