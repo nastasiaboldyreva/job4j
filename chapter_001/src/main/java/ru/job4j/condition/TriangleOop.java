@@ -18,9 +18,9 @@ public class TriangleOop {
 
     public double area() {
         double rsl = -1;
-        double a = first.distanceOop(second);
-        double b = first.distanceOop(third);
-        double c = second.distanceOop(third);
+        double a = first.distance(second);
+        double b = first.distance(third);
+        double c = second.distance(third);
         double p = period(a, b, c);
         if (this.exist(a, b, c)) {
             rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
