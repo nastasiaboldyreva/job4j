@@ -52,37 +52,37 @@ public class Tracker {
         }
         return res;
     }
-        // должен удалить ячейку в массиве this.items.
-        // Для этого необходимо найти ячейку в массиве по id.
-        // Далее сместить все значения справа от удаляемого элемента -
-        // на одну ячейку влево с помощью System.arrayCopy().
-        // Метод должен вернуть boolean результат - удалось ли провести операцию.
+    // должен удалить ячейку в массиве this.items.
+    // Для этого необходимо найти ячейку в массиве по id.
+    // Далее сместить все значения справа от удаляемого элемента -
+    // на одну ячейку влево с помощью System.arrayCopy().
+    // Метод должен вернуть boolean результат - удалось ли провести операцию.
 
 
-        //        4-получение списка всех заявок - public Item[] findAll();
-        public ItemTracker[] findAll () {
-            for (int i = 0; i < position; i++) {
-                ItemTracker[] findallitems = new ItemTracker[100];
-                for (int j = 0; j < position; j++) {
-                    if (findallitems != null) {
-                        findallitems[j++] = items[i];
-                        System.arraycopy(items, 0, findallitems, j, items.length);
-                    }
-                } return findallitems;
-            }
+    //        4-получение списка всех заявок - public Item[] findAll();
+    public ItemTracker[] findAll () {
+        ItemTracker[] findallitems = new ItemTracker[100];
+        for (int i = 0; i < position; i++) {
+            for (int j = 0; j < position; j++) {
+                if (findallitems != null) {
+                    findallitems[j++] = items[i];
+                    System.arraycopy(items, 0, findallitems, j, items.length);
+                }
+            } return findallitems;
         }
-        // возвращает копию массива this.items без null элементов
+    }
+    // возвращает копию массива this.items без null элементов
 
 
 
-        //        5-получение списка по имени - public Item[] findByName(String key);
-        public ItemTracker[] findByName(String key) {
-            for (int i=0; i < position; i++) {
-                ItemTracker[] findbynameitems = new ItemTracker[100];
-                for (int j = 0; j < position; j++) {
-                    if (findbynameitems[j].getName().equals(key)) {
-                        this.items[j++] = findbynameitems[i];
-                        return findbynameitems;
+    //        5-получение списка по имени - public Item[] findByName(String key);
+    public ItemTracker[] findByName(String key) {
+        ItemTracker[] findbynameitems = new ItemTracker[100];
+        for (int i=0; i < position; i++) {
+            for (int j = 0; j < position; j++) {
+                if (findbynameitems[j].getName().equals(key)) {
+                    this.items[j++] = findbynameitems[i];
+                    return findbynameitems;
                 }
             }
             // проверяет в цикле все элементы массива this.items,
@@ -93,10 +93,11 @@ public class Tracker {
 
         //        6-получение заявки по id - public Item findById(String id);
         public ItemTracker findById (String id) {
-//            for (int i=0; i < items.length; i++) {
-//                ItemTracker itembyid = new ItemTracker();
-//                id.equals(itembyid.setId());
-//            }
+            for (int i=0; i < position; i++) {
+                if(items[i].getId().equals(id)) {
+
+                }
+            }
         }
         //проверяет в цикле все элементы массива this.items,
         // сравнивая id с аргументом String id и возвращает найденный Item.
