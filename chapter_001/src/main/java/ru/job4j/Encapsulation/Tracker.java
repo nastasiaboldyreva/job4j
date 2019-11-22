@@ -2,6 +2,7 @@ package ru.job4j.Encapsulation;
 
 import ru.job4j.tracker.Item;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
@@ -9,7 +10,7 @@ public class Tracker {
     private final ItemTracker[] items = new ItemTracker[100];
     private int position = 0;
 
-    //        1-добавление заявок - public Item add(Item item);
+    // 1-добавление заявок - public Item add(Item item);
     public ItemTracker add(ItemTracker itemtracker) {
         itemtracker.setId(this.generateId());
         this.items[this.position++] = itemtracker;
@@ -20,7 +21,12 @@ public class Tracker {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
     }
-    //        2-редактирование заявок - public boolean replace(String id, Item item);
+
+    // 2-редактирование заявок - public boolean replace(String id, Item item);
+    // должен заменить ячейку в массиве this.items.
+    // Для этого необходимо найти ячейку в массиве по id.
+    // Метод должен вернуть boolean результат - удалось ли провести операцию.
+
     public boolean replace(String id, ItemTracker itemtracker) {
         boolean res = false;
         for (int i=0; i < position; i++) {
@@ -32,76 +38,83 @@ public class Tracker {
             }
         }
         return res;
-        // должен заменить ячейку в массиве this.items.
-        // Для этого необходимо найти ячейку в массиве по id.
-        // Метод должен вернуть boolean результат - удалось ли провести операцию.
     }
 
 
-    //        3-удаление заявок - public boolean delete(String id);
-    public boolean delete(String id) {
-        boolean res = false;
-        for (int i = 0; i < position; i++) {
-            ItemTracker[] newitem = new ItemTracker[i];
-            if (items[i].getId().equals(id)) {
-                newitem.setId(id);
-                System.arraycopy(items, 0, newitem, position-1, items.length);
-                res = true;
-                break;
-            }
-        }
-        return res;
-    }
+    // 3-удаление заявок - public boolean delete(String id);
     // должен удалить ячейку в массиве this.items.
     // Для этого необходимо найти ячейку в массиве по id.
     // Далее сместить все значения справа от удаляемого элемента -
     // на одну ячейку влево с помощью System.arrayCopy().
     // Метод должен вернуть boolean результат - удалось ли провести операцию.
 
-
-    //        4-получение списка всех заявок - public Item[] findAll();
-    public ItemTracker[] findAll () {
-        ItemTracker[] findallitems = new ItemTracker[100];
+    public boolean delete(String id) {
+        boolean res = false;
         for (int i = 0; i < position; i++) {
-            for (int j = 0; j < position; j++) {
-                if (findallitems != null) {
-                    findallitems[j++] = items[i];
-                    System.arraycopy(items, 0, findallitems, j, items.length);
-                }
-            } return findallitems;
+            if (items[i].getId().equals(id)) {
+                System.arraycopy(items, i+1, items, i, items.length - i - 1);
+                position--;
+                res = true;
+                break;
+            }
         }
+        return res;
     }
+
+
+
+
+    // 4-получение списка всех заявок - public Item[] findAll();
     // возвращает копию массива this.items без null элементов
 
+    public ItemTracker[] findAll () {
+        return Arrays.copyOf(items, items.length);
+//        ItemTracker[] findallitems = new ItemTracker[100];
+//        for (int i = 0; i < position; i++) {
+//            for (int j = 0; j < position; j++) {
+//                if (findallitems != null) {
+//                    findallitems[j++] = items[i];
+//                    System.arraycopy(items, 0, findallitems, j, items.length);
+//                }
+//            } return findallitems;
+//        }
+    }
 
 
-    //        5-получение списка по имени - public Item[] findByName(String key);
+
+
+    // 5-получение списка по имени - public Item[] findByName(String key);
+    // проверяет в цикле все элементы массива this.items,
+    // сравнивая name (используя метод getName класса Item) с аргументом метода String key.
+    // Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
+
     public ItemTracker[] findByName(String key) {
-        ItemTracker[] findbynameitems = new ItemTracker[100];
+        ItemTracker[] findbynameitems = new ItemTracker[position];
+        int count = 0;
         for (int i=0; i < position; i++) {
-            for (int j = 0; j < position; j++) {
-                if (findbynameitems[j].getName().equals(key)) {
-                    this.items[j++] = findbynameitems[i];
-                    return findbynameitems;
-                }
+            if (items[i].getName().equals(key)) {
+                findbynameitems[count++] = items[i];
             }
-            // проверяет в цикле все элементы массива this.items,
-            // сравнивая name (используя метод getName класса Item) с аргументом метода String key.
-            // Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
         }
+        return Arrays.copyOf(findbynameitems,count);
+    }
 
 
-        //        6-получение заявки по id - public Item findById(String id);
-        public ItemTracker findById (String id) {
-            for (int i=0; i < position; i++) {
+
+    // 6-получение заявки по id - public Item findById(String id);
+    // проверяет в цикле все элементы массива this.items,
+    // сравнивая id с аргументом String id и возвращает найденный Item.
+    // Если Item не найден - возвращает null.
+
+    public ItemTracker findById (String id) {
+            ItemTracker itemTracker = null;
+            for (int i = 0; i < position; i++) {
                 if(items[i].getId().equals(id)) {
-
+                    itemTracker = items[i];
+                    break;
                 }
             }
-        }
-        //проверяет в цикле все элементы массива this.items,
-        // сравнивая id с аргументом String id и возвращает найденный Item.
-        // Если Item не найден - возвращает null.
+            return itemTracker;
     }
 
 }
