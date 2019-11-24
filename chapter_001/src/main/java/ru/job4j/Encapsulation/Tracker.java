@@ -1,6 +1,6 @@
 package ru.job4j.Encapsulation;
 
-import ru.job4j.tracker.Item;
+import ru.job4j.Encapsulation.ItemTracker;
 
 import java.util.Arrays;
 import java.util.Random;
