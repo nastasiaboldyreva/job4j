@@ -4,8 +4,7 @@ public class ItemTracker {
     private String id;
     private String name;
 
-    public ItemTracker (String id, String name) {
-        this.id = id;
+    public ItemTracker (String name) {
         this.name = name;
     }
 
