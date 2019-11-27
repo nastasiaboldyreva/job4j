@@ -1,4 +1,6 @@
-package ru.job4j.tracker;
+package ru.job4j.Encapsulation;
+
+import ru.job4j.Encapsulation.Input;
 
 public class StubInput implements Input {
     @Override
