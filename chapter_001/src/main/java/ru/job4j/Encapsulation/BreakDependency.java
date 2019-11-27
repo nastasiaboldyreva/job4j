@@ -1,7 +1,5 @@
 package ru.job4j.Encapsulation;
 
-import ru.job4j.tracker.Item;
-
 public class BreakDependency {
     public void init(Input input, Tracker tracker) {
         boolean run = true;
@@ -69,6 +67,6 @@ public class BreakDependency {
     public static void main (String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(input, tracker);
+        new BreakDependency().init(input, tracker);
     }
 }

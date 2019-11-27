@@ -1,7 +1,5 @@
 package ru.job4j.Encapsulation;
 
-import ru.job4j.tracker.Item;
-
 import java.util.Scanner;
 
 
