@@ -2,7 +2,7 @@ package ru.job4j.Encapsulation;
 
 import ru.job4j.tracker.Item;
 
-public class BreakDependencies {
+public class BreakDependency {
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
