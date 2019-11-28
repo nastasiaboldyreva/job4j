@@ -2,7 +2,6 @@ package ru.job4j.Encapsulation;
 
 import java.util.Scanner;
 
-
 public class StartUI {
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
@@ -13,7 +12,6 @@ public class StartUI {
             if (select == 0) {
                 System.out.println("=== Create a new Item ===");
                 System.out.println("Enter name: ");
-                //4-1 Вместо вызова scanner.nextLine() написать input.askStr("").
                 String name = scanner.nextLine();
                 ItemTracker itemtracker = new ItemTracker(name);
                 tracker.add(itemtracker);
@@ -41,13 +39,17 @@ public class StartUI {
                 System.out.println("=== Find item by id ===");
                 System.out.println("Enter item id");
                 String id = scanner.nextLine();
-                tracker.findById(id);
+                ItemTracker itemTracker = tracker.findById(id);
+                System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
 
             } else if(select == 5) {
                 System.out.println("=== Find items by name ===");
                 System.out.println("Enter item name");
                 String name = scanner.nextLine();
-                tracker.findByName(name);
+                ItemTracker [] items = tracker.findByName(name);
+                for (ItemTracker itemTracker : items ) {
+                    System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+                }
 
             } else if(select == 6) {
                 run = false;
