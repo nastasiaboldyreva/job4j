@@ -39,6 +39,8 @@ public class StaticMethod {
         System.out.println("Enter item id");
         String id = input.askStr("");
         tracker.findById(id);
+        ItemTracker itemTracker = tracker.findById(id);
+        System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
     }
 
     public static void findByName(Input input, Tracker tracker) {
@@ -46,6 +48,10 @@ public class StaticMethod {
         System.out.println("Enter item name");
         String name = input.askStr("");
         tracker.findByName(name);
+        ItemTracker[] items = tracker.findByName(name);
+        for (ItemTracker itemTracker : items ) {
+            System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+        }
     }
 
 
