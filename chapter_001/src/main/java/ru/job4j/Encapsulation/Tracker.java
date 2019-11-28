@@ -1,7 +1,5 @@
 package ru.job4j.Encapsulation;
 
-import ru.job4j.Encapsulation.ItemTracker;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -69,17 +67,7 @@ public class Tracker {
 
     public ItemTracker[] findAll () {
         return Arrays.copyOf(items, items.length);
-//        ItemTracker[] findallitems = new ItemTracker[100];
-//        for (int i = 0; i < position; i++) {
-//            for (int j = 0; j < position; j++) {
-//                if (findallitems != null) {
-//                    findallitems[j++] = items[i];
-//                    System.arraycopy(items, 0, findallitems, j, items.length);
-//                }
-//            } return findallitems;
-//        }
     }
-
 
 
 
