@@ -38,12 +38,19 @@ public class BreakDependency {
                 String id = input.askStr("=== Find item by id ===");
                 System.out.println("Enter item id");
                 tracker.findById(id);
+                ItemTracker itemTracker = tracker.findById(id);
+                System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+
 
             } else if(select == 5) {
                 System.out.println("=== Find items by name ===");
                 String name = input.askStr("=== Find items by name ===");
                 System.out.println("Enter item name");
                 tracker.findByName(name);
+                ItemTracker[] items = tracker.findByName(name);
+                for (ItemTracker itemTracker : items ) {
+                    System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+                }
 
             } else if(select == 6) {
                 run = false;
