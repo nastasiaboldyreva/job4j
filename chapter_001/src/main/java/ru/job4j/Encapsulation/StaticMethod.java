@@ -5,8 +5,7 @@ public class StaticMethod {
     //метод createItem
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ===");
-        System.out.println("Enter name: ");
-        String name = input.askStr("");
+        String name = input.askStr("Enter name: ");
         ItemTracker itemtracker = new ItemTracker(name);
         tracker.add(itemtracker);
     }
@@ -21,25 +20,33 @@ public class StaticMethod {
 
     public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ===");
-        System.out.println(("Enter the item id you need to edit"));
-        String id = input.askStr("");
-        String name = input.askStr("");
+        String id = input.askStr("Enter id ");
+        String name = input.askStr("Enter name");
         ItemTracker itemtracker = new ItemTracker(name);
         tracker.replace(id, itemtracker);
-        System.out.println("Your new item is:" + itemtracker.getName());
+        boolean res = false;
+        if (res) {
+            System.out.println("Item edited");
+        } else {
+            System.out.println("Something wrong happened. Pls check id and name.");
+        }
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ===");
-        System.out.println("Enter item id");
-        String id = input.askStr("");
+        String id = input.askStr("Enter id");
         tracker.delete(id);
+        boolean res = false;
+        if(res) {
+            System.out.println("Item deleted");
+        } else {
+            System.out.println("Something wrong happened. Pls check id and name.");
+        }
     }
 
     public static void findById(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ===");
-        System.out.println("Enter item id");
-        String id = input.askStr("");
+        String id = input.askStr("Enter id");
         tracker.findById(id);
         ItemTracker itemTracker = tracker.findById(id);
         System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
@@ -47,8 +54,7 @@ public class StaticMethod {
 
     public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ===");
-        System.out.println("Enter item name");
-        String name = input.askStr("");
+        String name = input.askStr("Enter name");
         tracker.findByName(name);
         ItemTracker[] items = tracker.findByName(name);
         for (ItemTracker itemTracker : items ) {
