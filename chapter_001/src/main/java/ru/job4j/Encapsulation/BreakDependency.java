@@ -8,9 +8,8 @@ public class BreakDependency {
             System.out.print("Select: ");
             int select = Integer.valueOf(input.askStr(""));
             if (select == 0) {
-                //System.out.println("=== Create a new Item ===");
-                String name = input.askStr("=== Create a new Item ===");
-                System.out.println("Enter name: ");
+                System.out.println("=== Create a new Item ===");
+                String name = input.askStr("Enter name: ");
                 ItemTracker itemtracker = new ItemTracker(name);
                 tracker.add(itemtracker);
             } else if(select == 1) {
@@ -20,23 +19,20 @@ public class BreakDependency {
                     System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
                 }
             } else if(select == 2) {
-                //System.out.println("=== Edit item ===");
-                //System.out.println(("Enter the item id you need to edit"));
-                String id = input.askStr("=== Edit item ===");
-                String name = input.askStr("Enter the item id you need to edit");
+                System.out.println("=== Edit item ===");
+                String id = input.askStr("Enter id ");
+                String name = input.askStr("Enter name");
                 ItemTracker itemtracker = new ItemTracker(name);
                 tracker.replace(id, itemtracker);
 
             } else if(select == 3) {
-                //System.out.println("=== Delete item ===");
-                String id = input.askStr("=== Delete item ===");
-                System.out.println("Enter item id");
+                System.out.println("=== Delete item ===");
+                String id = input.askStr("Enter id");
                 tracker.delete(id);
 
             } else if(select == 4) {
-                //System.out.println("=== Find item by id ===");
-                String id = input.askStr("=== Find item by id ===");
-                System.out.println("Enter item id");
+                System.out.println("=== Find item by id ===");
+                String id = input.askStr("Enter id");
                 tracker.findById(id);
                 ItemTracker itemTracker = tracker.findById(id);
                 System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
@@ -44,8 +40,7 @@ public class BreakDependency {
 
             } else if(select == 5) {
                 System.out.println("=== Find items by name ===");
-                String name = input.askStr("=== Find items by name ===");
-                System.out.println("Enter item name");
+                String name = input.askStr("Enter name");
                 tracker.findByName(name);
                 ItemTracker[] items = tracker.findByName(name);
                 for (ItemTracker itemTracker : items ) {
