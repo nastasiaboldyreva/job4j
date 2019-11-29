@@ -2,6 +2,7 @@ package ru.job4j.Encapsulation;
 
 public class StaticMethod {
 
+    //метод createItem
     public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ===");
         System.out.println("Enter name: ");
