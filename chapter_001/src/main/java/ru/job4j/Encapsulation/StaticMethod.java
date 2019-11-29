@@ -25,6 +25,7 @@ public class StaticMethod {
         String name = input.askStr("");
         ItemTracker itemtracker = new ItemTracker(name);
         tracker.replace(id, itemtracker);
+        System.out.println("Your new item is:" + itemtracker.getName());
     }
 
     public static void deleteItem(Input input, Tracker tracker) {
