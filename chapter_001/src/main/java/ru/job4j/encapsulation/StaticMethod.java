@@ -43,7 +43,6 @@ public class StaticMethod {
     public static void findById(Input input, Tracker tracker) {
         System.out.println("=== Find item by id ===");
         String id = input.askStr("Enter id");
-        tracker.findById(id);
         ItemTracker itemTracker = tracker.findById(id);
         if (tracker.findById(id) != null) {
             System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
@@ -55,7 +54,6 @@ public class StaticMethod {
     public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Find items by name ===");
         String name = input.askStr("Enter name");
-        tracker.findByName(name);
         ItemTracker[] items = tracker.findByName(name);
         for (ItemTracker itemTracker : items) {
             System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
