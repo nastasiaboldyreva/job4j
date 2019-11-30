@@ -24,7 +24,7 @@ public class StaticMethod {
         String name = input.askStr("Enter name");
         ItemTracker itemtracker = new ItemTracker(name);
         if (tracker.replace(id, itemtracker)) {
-            System.out.println("Item edited");
+            System.out.println(String.format("Item with id %s and name %s replaced", itemtracker.getId(), itemtracker.getName()));
         } else {
             System.out.println("Something wrong happened. Pls check id and name.");
         }
@@ -34,7 +34,7 @@ public class StaticMethod {
         System.out.println("=== Delete item ===");
         String id = input.askStr("Enter id");
         if (tracker.delete(id)) {
-            System.out.println("Item deleted");
+            System.out.println(String.format("id %s deleted", id));
         } else {
             System.out.println("Something wrong happened. Pls check id and name.");
         }
@@ -45,7 +45,11 @@ public class StaticMethod {
         String id = input.askStr("Enter id");
         tracker.findById(id);
         ItemTracker itemTracker = tracker.findById(id);
-        System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+        if (tracker.findById(id) != null) {
+            System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+        } else {
+            System.out.println("Something wrong happened. Pls recheck id");
+        }
     }
 
     public static void findByName(Input input, Tracker tracker) {
