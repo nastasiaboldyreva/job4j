@@ -20,12 +20,12 @@ public class DataPreparationTest {
     @Test
     public void whenDeleteItem() {
         Tracker tracker = new Tracker();
-        //ItemTracker itemtracker = new ItemTracker("delete item");
-        tracker.delete(itemtracker);
-        String[] answers = {itemtracker.getId(), "null"};
+        ItemTracker itemtracker = new ItemTracker("delete item");
+        ItemTracker add = tracker.add(itemtracker);
+        String[] answers = {add.getId()};
         StaticMethod.deleteItem(new StubInputStatic(answers), tracker);
-        ItemTracker deleted = tracker.delete(itemtracker.getId());
-        assertThat(deleted.getName(), is("null"));
+        ItemTracker ex = tracker.findById(add.getId());
+        assertNull(ex);
 
     }
 
