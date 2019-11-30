@@ -1,4 +1,4 @@
-package ru.job4j.Encapsulation;
+package ru.job4j.encapsulation;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ru.job4j.Encapsulation;
+package ru.job4j.encapsulation;
 
 public class StaticMethod {
 
@@ -13,7 +13,7 @@ public class StaticMethod {
     public static void showItems(Input input, Tracker tracker) {
         System.out.println("=== Show all items ===");
         ItemTracker[] items = tracker.findAll();
-        for (ItemTracker itemTracker : items ) {
+        for (ItemTracker itemTracker : items) {
             System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
         }
     }
@@ -23,9 +23,7 @@ public class StaticMethod {
         String id = input.askStr("Enter id ");
         String name = input.askStr("Enter name");
         ItemTracker itemtracker = new ItemTracker(name);
-        tracker.replace(id, itemtracker);
-        boolean res = false;
-        if (res) {
+        if (tracker.replace(id, itemtracker)) {
             System.out.println("Item edited");
         } else {
             System.out.println("Something wrong happened. Pls check id and name.");
@@ -35,9 +33,7 @@ public class StaticMethod {
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete item ===");
         String id = input.askStr("Enter id");
-        tracker.delete(id);
-        boolean res = false;
-        if(res) {
+        if (tracker.delete(id)) {
             System.out.println("Item deleted");
         } else {
             System.out.println("Something wrong happened. Pls check id and name.");
@@ -57,7 +53,7 @@ public class StaticMethod {
         String name = input.askStr("Enter name");
         tracker.findByName(name);
         ItemTracker[] items = tracker.findByName(name);
-        for (ItemTracker itemTracker : items ) {
+        for (ItemTracker itemTracker : items) {
             System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
         }
     }
@@ -72,17 +68,17 @@ public class StaticMethod {
             int select = Integer.valueOf(input.askStr(""));
             if (select == 0) {
                 StaticMethod.createItem(input, tracker);
-            } else if(select == 1) {
+            } else if (select == 1) {
                 StaticMethod.showItems(input, tracker);
-            } else if(select == 2) {
+            } else if (select == 2) {
                 StaticMethod.editItem(input, tracker);
-            } else if(select == 3) {
+            } else if (select == 3) {
                 StaticMethod.deleteItem(input, tracker);
-            } else if(select == 4) {
+            } else if (select == 4) {
                 StaticMethod.findById(input, tracker);
-            } else if(select == 5) {
+            } else if (select == 5) {
                 StaticMethod.findByName(input, tracker);
-            } else if(select == 6) {
+            } else if (select == 6) {
                 run = false;
             }
 
@@ -100,7 +96,7 @@ public class StaticMethod {
         System.out.println("Exit");
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StaticMethod().init(input, tracker);
