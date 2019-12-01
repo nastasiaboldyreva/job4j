@@ -1,10 +1,10 @@
-package ru.job4j.encapsulation;
+package encapsulation;
 
-public class StubInputStatic implements Input{
+public class StubInputStatic implements Input {
     private String[] answers;
     private int position = 0;
 
-    public StubInputStatic (String[] answers) {
+    public StubInputStatic(String[] answers) {
         this.answers = answers;
     }
 

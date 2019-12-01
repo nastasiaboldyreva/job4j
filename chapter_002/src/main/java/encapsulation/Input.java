@@ -1,4 +1,4 @@
-package ru.job4j.encapsulation;
+package encapsulation;
 
 public interface Input {
 

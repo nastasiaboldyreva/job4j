@@ -1,10 +1,10 @@
-package ru.job4j.encapsulation;
+package encapsulation;
 
 public class ItemTracker {
     private String id;
     private String name;
 
-    public ItemTracker (String name) {
+    public ItemTracker(String name) {
         this.name = name;
     }
 

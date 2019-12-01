@@ -36,7 +36,8 @@ public class DataPreparationTest {
         tracker.add(itemtracker);
         String[] answers = {itemtracker.getName(), "this item found"};
         StaticMethod.findByName(new StubInputStatic(answers), tracker);
-        ItemTracker[] found = tracker.findByName(itemtracker.getName());
+        ItemTracker[] found = new ItemTracker[];
+        // ItemTracker[] found = tracker.findByName(itemtracker.getName());
         assertThat(found.getName(), is("this item found"));
 
     }

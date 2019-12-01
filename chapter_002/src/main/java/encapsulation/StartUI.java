@@ -1,14 +1,18 @@
-package ru.job4j.encapsulation;
+package encapsulation;
 
-public class BreakDependency {
-    public void init(Input input, Tracker tracker) {
+import java.util.Scanner;
+
+public class StartUI {
+    public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
-            int select = Integer.parseInt(input.askStr("Select: "));
+            System.out.print("Select: ");
+            int select = Integer.valueOf(scanner.nextLine());
             if (select == 0) {
                 System.out.println("=== Create a new Item ===");
-                String name = input.askStr("Enter name: ");
+                System.out.println("Enter name: ");
+                String name = scanner.nextLine();
                 ItemTracker itemtracker = new ItemTracker(name);
                 tracker.add(itemtracker);
             } else if (select == 1) {
@@ -19,41 +23,30 @@ public class BreakDependency {
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit item ===");
-                String id = input.askStr("Enter id ");
-                String name = input.askStr("Enter name");
+                System.out.println(("Enter the item id you need to edit"));
+                String id = scanner.nextLine();
+                String name = scanner.nextLine();
                 ItemTracker itemtracker = new ItemTracker(name);
-                if (tracker.replace(id, itemtracker)) {
-                    System.out.println(String.format("Item with id %s and name %s replaced", itemtracker.getId(), itemtracker.getName()));
-                } else {
-                    System.out.println("Something wrong happened. Pls recheck id and name.");
-                }
+                tracker.replace(id, itemtracker);
 
             } else if (select == 3) {
                 System.out.println("=== Delete item ===");
-                String id = input.askStr("Enter id");
-                if (tracker.delete(id)) {
-                    System.out.println(String.format("id %s deleted", id));
-                } else {
-                    System.out.println("Something wrong happened. Pls recheck id");
-                }
+                System.out.println("Enter item id");
+                String id = scanner.nextLine();
+                tracker.delete(id);
 
             } else if (select == 4) {
                 System.out.println("=== Find item by id ===");
-                String id = input.askStr("Enter id");
+                System.out.println("Enter item id");
+                String id = scanner.nextLine();
                 ItemTracker itemTracker = tracker.findById(id);
-                if (tracker.findById(id) != null) {
-                    System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
-                } else {
-                    System.out.println("Something wrong happened. Pls recheck id");
-                }
-
-
+                System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
 
             } else if (select == 5) {
                 System.out.println("=== Find items by name ===");
-                String name = input.askStr("Enter name");
+                System.out.println("Enter item name");
+                String name = scanner.nextLine();
                 ItemTracker[] items = tracker.findByName(name);
-                tracker.findByName(name);
                 for (ItemTracker itemTracker : items) {
                     System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
                 }
@@ -76,9 +69,9 @@ public class BreakDependency {
         System.out.println("Exit");
     }
 
-    public static void main(String[] args){
-        Input input = new ConsoleInput();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
-        new BreakDependency().init(input, tracker);
+        new StartUI().init(scanner, tracker);
     }
 }

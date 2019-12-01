@@ -1,4 +1,4 @@
-package ru.job4j.encapsulation;
+package encapsulation;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -27,7 +27,7 @@ public class Tracker {
 
     public boolean replace(String id, ItemTracker itemtracker) {
         boolean res = false;
-        for (int i=0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
                 itemtracker.setId(id);
                 this.items[i] = itemtracker;
@@ -50,7 +50,7 @@ public class Tracker {
         boolean res = false;
         for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
-                System.arraycopy(items, i+1, items, i, items.length - i - 1);
+                System.arraycopy(items, i + 1, items, i, items.length - i - 1);
                 position--;
                 res = true;
                 break;
@@ -65,7 +65,7 @@ public class Tracker {
     // 4-получение списка всех заявок - public Item[] findAll();
     // возвращает копию массива this.items без null элементов
 
-    public ItemTracker[] findAll () {
+    public ItemTracker[] findAll() {
         return Arrays.copyOf(items, items.length);
     }
 
@@ -79,12 +79,12 @@ public class Tracker {
     public ItemTracker[] findByName(String key) {
         ItemTracker[] findbynameitems = new ItemTracker[position];
         int count = 0;
-        for (int i=0; i < position; i++) {
+        for (int i = 0; i < position; i++) {
             if (items[i].getName().equals(key)) {
                 findbynameitems[count++] = items[i];
             }
         }
-        return Arrays.copyOf(findbynameitems,count);
+        return Arrays.copyOf(findbynameitems, count);
     }
 
 
@@ -94,10 +94,10 @@ public class Tracker {
     // сравнивая id с аргументом String id и возвращает найденный Item.
     // Если Item не найден - возвращает null.
 
-    public ItemTracker findById (String id) {
+    public ItemTracker findById(String id) {
             ItemTracker itemTracker = null;
             for (int i = 0; i < position; i++) {
-                if(items[i].getId().equals(id)) {
+                if (items[i].getId().equals(id)) {
                     itemTracker = items[i];
                     break;
                 }
