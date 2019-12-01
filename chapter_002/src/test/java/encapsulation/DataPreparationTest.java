@@ -1,4 +1,4 @@
-package ru.job4j.encapsulation;
+package java.encapsulation;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
@@ -33,13 +33,11 @@ public class DataPreparationTest {
     public void whenFindByName() {
         Tracker tracker = new Tracker();
         ItemTracker itemtracker = new ItemTracker("find by name");
-        tracker.add(itemtracker);
+        Itemtracker[] found = tracker.add(itemtracker);
         String[] answers = {itemtracker.getName(), "this item found"};
         StaticMethod.findByName(new StubInputStatic(answers), tracker);
-        ItemTracker[] found = new ItemTracker[];
-        // ItemTracker[] found = tracker.findByName(itemtracker.getName());
+        ItemTracker[] found = tracker.findByName(itemtracker.getName());
         assertThat(found.getName(), is("this item found"));
-
     }
 
 

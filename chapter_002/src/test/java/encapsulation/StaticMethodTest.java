@@ -1,4 +1,4 @@
-package ru.job4j.encapsulation;
+package java.encapsulation;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
