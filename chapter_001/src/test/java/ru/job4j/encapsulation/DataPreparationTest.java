@@ -30,13 +30,13 @@ public class DataPreparationTest {
     }
 
     @Test
-    public void whenFindItem() {
+    public void whenFindByName() {
         Tracker tracker = new Tracker();
-        ItemTracker itemtracker = new ItemTracker("find Item");
+        ItemTracker itemtracker = new ItemTracker("find by name");
         tracker.add(itemtracker);
-        String[] answers = {itemtracker.getId(), "this item found"};
-        StaticMethod.findById(new StubInputStatic(answers), tracker);
-        ItemTracker found = tracker.findById(itemtracker.getId());
+        String[] answers = {itemtracker.getName(), "this item found"};
+        StaticMethod.findByName(new StubInputStatic(answers), tracker);
+        ItemTracker[] found = tracker.findByName(itemtracker.getName());
         assertThat(found.getName(), is("this item found"));
 
     }
