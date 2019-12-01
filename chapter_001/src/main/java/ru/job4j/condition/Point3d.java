@@ -10,13 +10,13 @@ public class Point3d {
     private int y;
     private int z;
 
-    public Point3d (int first, int second, int third) {
+    public Point3d(int first, int second, int third) {
         this.x = first;
         this.y = second;
         this.z = third;
     }
 
-    public double distance3d (Point3d that) {
+    public double distance3d(Point3d that) {
         return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2) + pow(this.z - that.z, 2));
     }
 

@@ -3,7 +3,7 @@ package ru.job4j.pojo;
 public class Shop {
 
     public static void main(String[] args) {
-        ProductDelete productsdelete[] = new ProductDelete[5];
+        ProductDelete[] productsdelete = new ProductDelete[5];
         productsdelete[0] = new ProductDelete("Milk", 10);
         productsdelete[1] = new ProductDelete("Bread", 4);
         productsdelete[2] = new ProductDelete("Egg", 19);
@@ -47,7 +47,7 @@ public class Shop {
         System.out.println();
         System.out.println("Заменим ячейку с индексом index на нулевую ссылку");
         productsdelete[index] = null;
-        for (int i = 0; i < productsdelete.length; i ++) {
+        for (int i = 0; i < productsdelete.length; i++) {
             productsdelete[index] = productsdelete[index + 1];
             ProductDelete product = productsdelete[i];
             if (product != null) {

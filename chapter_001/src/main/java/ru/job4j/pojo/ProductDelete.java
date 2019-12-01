@@ -5,7 +5,7 @@ public class ProductDelete {
     private String name;
     private int count;
 
-    public ProductDelete ( String name, int count) {
+    public ProductDelete(String name, int count) {
         this.name = name;
         this.count = count;
     }

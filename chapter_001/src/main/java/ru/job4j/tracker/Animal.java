@@ -7,7 +7,7 @@ public class Animal {
         System.out.println("Animal");
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Predator predator = new Predator();
     }
 }

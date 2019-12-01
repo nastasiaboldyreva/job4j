@@ -8,14 +8,14 @@ public class MaxOop {
     }
 
     public int max(int left, int right, int top) {
-        return max (
+        return max(
                 left,
                 max(right, top)
         );
     }
 
-    public int max (int left, int right, int top, int bottom) {
-        return max (
+    public int max(int left, int right, int top, int bottom) {
+        return max(
                 left, right,
                 max(top, bottom)
         );

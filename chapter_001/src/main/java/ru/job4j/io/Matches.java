@@ -21,7 +21,7 @@ public class Matches {
             if (select > 0 && select < 4) {
                 quantity = quantity - select;
                 System.out.println("осталось" + quantity + "спичек");
-                gamer = ! gamer;
+                gamer = !gamer;
             } else {
                 System.out.println("Введите верное количество от 1 до 3");
             }

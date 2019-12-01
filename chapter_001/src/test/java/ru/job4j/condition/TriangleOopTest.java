@@ -9,7 +9,7 @@ public class TriangleOopTest {
     @Test
     public void whenAreaSetThreePointsThenTriangleArea() {
         //Создаем объект треугольник
-        TriangleOop triangleoop = new TriangleOop(new PointOop(0,0), new PointOop(0,2), new PointOop(2,0));
+        TriangleOop triangleoop = new TriangleOop(new PointOop(0, 0), new PointOop(0, 2), new PointOop(2, 0));
         //Вычисляем площадь
         double result = triangleoop.area();
         //Задаем ожидаемый результат

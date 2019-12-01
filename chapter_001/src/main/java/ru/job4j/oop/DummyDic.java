@@ -7,7 +7,7 @@ public class DummyDic {
         return eng;
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         DummyDic oxford = new DummyDic();
         String english = oxford.engToRus();
         System.out.println("Неизвестное слово: " + english);

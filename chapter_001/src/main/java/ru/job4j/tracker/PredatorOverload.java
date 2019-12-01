@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class PredatorOverload extends AnimalOverload{
+public class PredatorOverload extends AnimalOverload {
 
     public PredatorOverload() {
         super();
