@@ -1,15 +1,12 @@
 package ru.job4j.encapsulation;
 
-import encapsulation.Input;
-import encapsulation.ItemTracker;
-import encapsulation.StubInputStatic;
-import encapsulation.Tracker;
+import encapsulation.*;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class StaticMethod {
+public class StaticMethodTest {
 
     @Test
     public void whenAddItem() {
