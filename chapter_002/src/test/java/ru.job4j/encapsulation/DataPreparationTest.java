@@ -1,5 +1,9 @@
-package java.encapsulation;
+package ru.job4j.encapsulation;
 
+import encapsulation.ItemTracker;
+import encapsulation.StaticMethod;
+import encapsulation.StubInputStatic;
+import encapsulation.Tracker;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -14,7 +18,7 @@ public class DataPreparationTest {
         String[] answers = {itemtracker.getId(), "replaced item"};
         StaticMethod.editItem(new StubInputStatic(answers), tracker);
         ItemTracker replaced = tracker.findById(itemtracker.getId());
-        assertThat(replaced.getName(),is("replaced item"));
+        assertThat(replaced.getName(), is("replaced item"));
     }
 
     @Test
@@ -33,13 +37,13 @@ public class DataPreparationTest {
     public void whenFindByName() {
         Tracker tracker = new Tracker();
         ItemTracker itemtracker = new ItemTracker("find by name");
-        Itemtracker[] found = tracker.add(itemtracker);
-        String[] answers = {itemtracker.getName(), "this item found"};
+        tracker.add(itemtracker);
+
+        String[] answers = {itemtracker.getName()};
         StaticMethod.findByName(new StubInputStatic(answers), tracker);
+
         ItemTracker[] found = tracker.findByName(itemtracker.getName());
-        assertThat(found.getName(), is("this item found"));
+        assertThat(found[0].getName(), is("find by name"));
     }
-
-
 
 }
