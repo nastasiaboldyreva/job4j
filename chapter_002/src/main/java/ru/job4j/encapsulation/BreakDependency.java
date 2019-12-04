@@ -1,4 +1,4 @@
-package encapsulation;
+package ru.job4j.encapsulation;
 
 public class BreakDependency {
     public void init(Input input, Tracker tracker) {

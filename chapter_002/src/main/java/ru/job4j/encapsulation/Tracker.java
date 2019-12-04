@@ -1,4 +1,4 @@
-package encapsulation;
+package ru.job4j.encapsulation;
 
 import java.util.Arrays;
 import java.util.Random;
