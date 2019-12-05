@@ -61,29 +61,13 @@ public class StaticMethod {
     }
 
 
-
-    public void init(Input input, Tracker tracker) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            this.showMenu();
-            System.out.print("Select: ");
-            int select = Integer.valueOf(input.askStr(""));
-            if (select == 0) {
-                StaticMethod.createItem(input, tracker);
-            } else if (select == 1) {
-                StaticMethod.showItems(input, tracker);
-            } else if (select == 2) {
-                StaticMethod.editItem(input, tracker);
-            } else if (select == 3) {
-                StaticMethod.deleteItem(input, tracker);
-            } else if (select == 4) {
-                StaticMethod.findById(input, tracker);
-            } else if (select == 5) {
-                StaticMethod.findByName(input, tracker);
-            } else if (select == 6) {
-                run = false;
-            }
-
+            this.showMenu(actions);
+            int select = input.askStr("Select: ");
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
         }
     }
 
@@ -101,7 +85,8 @@ public class StaticMethod {
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StaticMethod().init(input, tracker);
+        UserAction[] actions = {new CreateAction()};
+        new StaticMethod().init(input, tracker, actions);
     }
 }
 
