@@ -16,4 +16,12 @@ public class StaticMethodTest {
         ItemTracker expected = new ItemTracker("Fix PC");
         assertThat(created.getName(), is(expected.getName()));
     }
+
+    @Test
+    public void whenExit() {
+        StubInput input = new StubInput(new String[] {"0"});
+        StubAction action = new StubAction();
+        new StaticMethod().init(input, new Tracker(), new UserAction[] { action });
+        assertThat(action.isCall(), is(true));
+    }
 }
