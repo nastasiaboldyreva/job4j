@@ -71,15 +71,11 @@ public class StaticMethod {
         }
     }
 
-    private void showMenu() {
+    private void showMenu(UserAction[] actions) {
         System.out.println("Menu: ");
-        System.out.println("1. Create new item");
-        System.out.println("2. Show all items");
-        System.out.println("3. Edit item");
-        System.out.println("4. Delete item");
-        System.out.println("5. Find item by id");
-        System.out.println("6. Find items by name");
-        System.out.println("Exit");
+        for (int index = 0; index < actions.length; index++) {
+            System.out.println(index + ". " + actions[index].name());
+        }
     }
 
     public static void main(String[] args) {
