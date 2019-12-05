@@ -4,10 +4,10 @@ public class TriangleShape implements Shape{
     @Override
     public String draw() {
         StringBuilder pic = new StringBuilder();
-        pic.append("+");
-        pic.append("++");
-        pic.append("+++");
-        pic.append("++++");
+        pic.append("+" + System.lineSeparator());
+        pic.append("++" + System.lineSeparator());
+        pic.append("+++" + System.lineSeparator());
+        pic.append("++++" + System.lineSeparator());
         return pic.toString();
     }
 }
