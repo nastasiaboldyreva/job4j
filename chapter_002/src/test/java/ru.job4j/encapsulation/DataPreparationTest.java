@@ -12,7 +12,8 @@ public class DataPreparationTest {
         ItemTracker itemtracker = new ItemTracker("new item");
         tracker.add(itemtracker);
         String[] answers = {itemtracker.getId(), "replaced item"};
-        StaticMethod.editItem(new StubInputStatic(answers), tracker);
+        //замена статического метода на использование класса
+        new EditAction().execute(new StubInputStatic(answers), tracker);
         ItemTracker replaced = tracker.findById(itemtracker.getId());
         assertThat(replaced.getName(), is("replaced item"));
     }
@@ -23,7 +24,7 @@ public class DataPreparationTest {
         ItemTracker itemtracker = new ItemTracker("delete item");
         ItemTracker add = tracker.add(itemtracker);
         String[] answers = {add.getId()};
-        StaticMethod.deleteItem(new StubInputStatic(answers), tracker);
+        new DeleteAction().execute(new StubInputStatic(answers), tracker);
         ItemTracker ex = tracker.findById(add.getId());
         assertNull(ex);
 
@@ -36,7 +37,7 @@ public class DataPreparationTest {
         tracker.add(itemtracker);
 
         String[] answers = {itemtracker.getName()};
-        StaticMethod.findByName(new StubInputStatic(answers), tracker);
+        new FindByNameAction().execute(new StubInputStatic(answers), tracker);
 
         ItemTracker[] found = tracker.findByName(itemtracker.getName());
         assertThat(found[0].getName(), is("find by name"));
