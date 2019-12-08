@@ -27,7 +27,8 @@ public class StaticMethod {
                 new EditAction(),
                 new FindByIdAction(),
                 new FindByNameAction(),
-                new ShowAction()
+                new ShowAction(),
+                new FindAllAction()
         };
         new StaticMethod().init(input, tracker, actions);
     }
