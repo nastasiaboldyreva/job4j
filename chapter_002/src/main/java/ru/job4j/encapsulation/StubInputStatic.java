@@ -18,4 +18,9 @@ public class StubInputStatic implements Input {
         return Integer.valueOf(askStr(question));
     }
 
+    @Override
+    public int askInt(String question, int max) {
+        return askInt(question);
+    }
+
 }
