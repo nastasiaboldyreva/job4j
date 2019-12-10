@@ -7,4 +7,7 @@ public interface Input {
 
     //метод будет запрашивать ввод данных от пользователя пока пользователь не введет число от 0 до max.
     int askInt(String question, int max);
+
+    //повторный ввод данных от пользователя
+    int askInt(String question, String repeat);
 }

@@ -23,4 +23,9 @@ public class StubInputStatic implements Input {
         return askInt(question);
     }
 
+    @Override
+    public int askInt(String question, String repeat) {
+        return askInt(question);
+    }
+
 }

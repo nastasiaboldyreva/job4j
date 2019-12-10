@@ -26,4 +26,9 @@ public class ConsoleInput implements Input {
             throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
         }
     }
+
+    @Override
+    public int askInt(String question, String repeat) {
+        return Integer.valueOf(askStr(repeat));
+    }
 }
