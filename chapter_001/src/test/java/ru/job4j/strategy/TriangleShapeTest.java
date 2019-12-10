@@ -20,7 +20,7 @@ public class TriangleShapeTest {
                         .append("+++")
                         .append(NL)
                         .append("++++")
-                        .append(NL)
+                        //.append(NL)
                         .toString()
                 )
         );
