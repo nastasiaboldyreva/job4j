@@ -27,7 +27,7 @@ public class FindAllActionTest {
 
         //проверяем содержимое вывода
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(itemtracker.getId() + "" + itemtracker.getName())
+                .add(itemtracker.getId() + " " + itemtracker.getName())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
         System.setOut(def);
