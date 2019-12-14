@@ -10,11 +10,13 @@ public class StubInputStatic implements Input {
 
     @Override
     public String askStr(String question) {
+
         return answers[position++];
     }
 
     @Override
     public int askInt(String question) {
+
         return Integer.valueOf(askStr(question));
     }
 
@@ -23,8 +25,4 @@ public class StubInputStatic implements Input {
         return askInt(question);
     }
 
-    @Override
-    public int askInt(String question, String repeat) {
-        return askInt(question);
-    }
 }

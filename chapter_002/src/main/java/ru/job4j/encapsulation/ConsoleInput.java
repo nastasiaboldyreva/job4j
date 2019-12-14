@@ -27,8 +27,4 @@ public class ConsoleInput implements Input {
         }
     }
 
-    @Override
-    public int askInt(String question, String repeat) {
-        return Integer.valueOf(askStr(repeat));
-    }
 }

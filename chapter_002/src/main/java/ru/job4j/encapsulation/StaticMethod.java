@@ -20,7 +20,7 @@ public class StaticMethod {
     }
 
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input validate = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {new CreateAction(),
                 new DeleteAction(),
@@ -30,7 +30,7 @@ public class StaticMethod {
                 new ShowAction(),
                 new FindAllAction()
         };
-        new StaticMethod().init(input, tracker, actions);
+        new StaticMethod().init(validate, tracker, actions);
     }
 }
 
