@@ -8,7 +8,6 @@ public class FindByNameAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        //System.out.println("=== Find items by name ===");
         String name = input.askStr("Enter name");
         ItemTracker[] items = tracker.findByName(name);
         for (ItemTracker itemTracker : items) {
