@@ -22,11 +22,11 @@ public class FindByNameActionTest {
         ItemTracker itemtracker = new ItemTracker("fix bug");
         tracker.add(itemtracker);
         FindByNameAction act = new FindByNameAction();
-        act.execute(new StubInputStatic(new String[] {}), tracker);
+        act.execute(new StubInputStatic(new String[] {"fix bug"}), tracker);
 
         //проверяем содержимое вывода
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(itemtracker.getId() + "" + itemtracker.getName())
+                .add(itemtracker.getId() + " " + itemtracker.getName())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
         System.setOut(def);
