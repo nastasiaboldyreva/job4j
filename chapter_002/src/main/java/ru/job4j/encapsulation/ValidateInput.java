@@ -35,24 +35,5 @@ public class ValidateInput extends ConsoleInput {
         return value;
     }
 
-    @Override
-    public int askInt(String question, String repeat) {
-        boolean invalid = true;
-        int value = -1;
-        do {
-            try {
-                value = super.askInt(question, repeat);
-                invalid = false;
-            }
-
-            // как узнать, какую ошибку здесь выкидывает?
-              catch (IllegalStateException ise) {
-                System.out.println("Pls repeat your data");
-            } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again");
-            }
-        } while (invalid);
-        return value;
-    }
 
 }
