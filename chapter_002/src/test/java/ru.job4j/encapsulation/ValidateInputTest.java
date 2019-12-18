@@ -20,7 +20,7 @@ public class ValidateInputTest {
         input.askInt("Enter", 1);
         assertThat(
                 mem.toString(),
-                is(String.format("Please enter validate data again.%n"))
+                is(String.format("Please enter validate data again %n"))
         );
         System.setOut(out);
     }
