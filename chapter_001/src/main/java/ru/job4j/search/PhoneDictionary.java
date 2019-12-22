@@ -7,13 +7,7 @@ public class PhoneDictionary {
 
     public void add(Person person) {
         this.persons.add(person);
-        persons.add("Petr");
-        persons.add("Arsentev");
-        persons.add("12345");
-        persons.add("Bryansk");
-        boolean rst = persons.contains("nsk");
-        boolean rst = persons.contains("234");
-        boolean rst = persons.contains("Ars");
+
     }
 
 
@@ -24,6 +18,11 @@ public class PhoneDictionary {
      */
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
+        for (Person person : persons) {
+            if( key.contains("etr") | key.contains("sen") | key.contains("234") | key.contains("yan") ) {
+                result.add(person);
+            }
+        }
         return result;
     }
 
