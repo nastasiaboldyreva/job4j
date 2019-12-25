@@ -19,7 +19,10 @@ public class PhoneDictionary {
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
-            if( key.contains("etr") || key.contains("sen") || key.contains("234") || key.contains("yan") ) {
+            if( person.getSurname().contains(key) ||
+                    person.getName().contains(key) ||
+                    person.getAddress().contains(key) ||
+                    person.getPhone().contains(key) ) {
                 result.add(person);
             }
         }
