@@ -5,7 +5,7 @@ public class Task {
     private int priority;
 
     public Task(String desk, int priority) {
-        this.desc = desc;
+        this.desc = desk;
         this.priority = priority;
     }
 
