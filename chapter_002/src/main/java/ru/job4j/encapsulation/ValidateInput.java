@@ -13,6 +13,10 @@ public class ValidateInput implements Input {
         return input.askStr(question);
     }
 
+    @Override
+    public int askInt(String question) {
+        return input.askInt(question);
+    }
 
     @Override
     public int askInt(String question, int max) {
