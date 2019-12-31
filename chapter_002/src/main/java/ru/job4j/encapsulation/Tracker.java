@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Tracker {
 
-    private final ArrayList<ItemTracker> items = new ArrayList<>();
+    private final List<ItemTracker> items = new ArrayList<>();
     private int position = 0;
 
     // 1-добавление заявок - public Item add(Item item);
@@ -85,7 +85,7 @@ public class Tracker {
 
     public List<ItemTracker> findByName(String key) {
         //ItemTracker[] findbynameitems = new ItemTracker[position];
-        ItemTracker[] findbynameitems = new ItemTracker[position];
+        List<ItemTracker> findbynameitems = new ArrayList<>();
         int count = 0;
         for (int i = 0; i < position; i++) {
             //if (items[i].getName().equals(key))
@@ -107,8 +107,9 @@ public class Tracker {
     public ItemTracker findById(String id) {
             ItemTracker itemTracker = null;
             for (int i = 0; i < position; i++) {
-                if (items[i].getId().equals(id)) {
-                    itemTracker = items[i];
+                if (items.get(i).getId().equals(id)) {
+                    //itemTracker = items[i];
+                    itemTracker = items.get(i);
                     break;
                 }
             }
