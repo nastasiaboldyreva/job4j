@@ -36,7 +36,7 @@ public class Tracker {
             if (items.get(i).getId().equals(id)) {
                 itemtracker.setId(id);
                 //this.items[i] = itemtracker;
-                this.items.add(itemtracker);
+                this.items.set(i, itemtracker);
                 res = true;
                 break;
             }
@@ -57,7 +57,8 @@ public class Tracker {
         for (int i = 0; i < position; i++) {
             //if (items[i].getId().equals(id))
             if (items.get(i).getId().equals(id)) {
-                System.arraycopy(items, i + 1, items, i, items.size() - i - 1);
+                //System.arraycopy(items, i + 1, items, i, items.size() - i - 1);
+                items.remove(i);
                 position--;
                 res = true;
                 break;
@@ -91,7 +92,7 @@ public class Tracker {
             //if (items[i].getName().equals(key))
             if (items.get(i).getName().equals(key)) {
                 //findbynameitems[count++] = items[i];
-                findbynameitems = items.get(i);
+                findbynameitems.add(items.get(i));
             }
         }
         return Arrays.copyOf(findbynameitems, count);

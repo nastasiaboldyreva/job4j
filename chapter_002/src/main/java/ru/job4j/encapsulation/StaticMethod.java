@@ -28,7 +28,7 @@ public class StaticMethod {
         Input input = new ConsoleInput();
         Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
-        UserAction[] actions = {new CreateAction(),
+        List<UserAction> actions = {new CreateAction(),
                 new DeleteAction(),
                 new EditAction(),
                 new FindByIdAction(),
