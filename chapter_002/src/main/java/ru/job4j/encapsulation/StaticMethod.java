@@ -2,12 +2,12 @@ package ru.job4j.encapsulation;
 
 public class StaticMethod {
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
             int select = Integer.parseInt(input.askStr("Select: "));
-            UserAction action = actions[select];
+            UserAction action = actions.get(select);
             run = action.execute(input, tracker);
         }
     }

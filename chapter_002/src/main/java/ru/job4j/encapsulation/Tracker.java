@@ -2,16 +2,20 @@ package ru.job4j.encapsulation;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Tracker {
 
-    private final ItemTracker[] items = new ItemTracker[100];
+    private final ArrayList<ItemTracker> items = new ArrayList<>();
     private int position = 0;
 
     // 1-добавление заявок - public Item add(Item item);
     public ItemTracker add(ItemTracker itemtracker) {
         itemtracker.setId(this.generateId());
-        this.items[this.position++] = itemtracker;
+        //this.items[this.position++] = itemtracker;
+        this.items.add(itemtracker);
         return itemtracker;
     }
 
@@ -28,9 +32,11 @@ public class Tracker {
     public boolean replace(String id, ItemTracker itemtracker) {
         boolean res = false;
         for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
+            //if (items[i].getId().equals(id))
+            if (items.get(i).getId().equals(id)) {
                 itemtracker.setId(id);
-                this.items[i] = itemtracker;
+                //this.items[i] = itemtracker;
+                this.items.add(itemtracker);
                 res = true;
                 break;
             }
@@ -49,8 +55,9 @@ public class Tracker {
     public boolean delete(String id) {
         boolean res = false;
         for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
-                System.arraycopy(items, i + 1, items, i, items.length - i - 1);
+            //if (items[i].getId().equals(id))
+            if (items.get(i).getId().equals(id)) {
+                System.arraycopy(items, i + 1, items, i, items.size() - i - 1);
                 position--;
                 res = true;
                 break;
@@ -65,7 +72,7 @@ public class Tracker {
     // 4-получение списка всех заявок - public Item[] findAll();
     // возвращает копию массива this.items без null элементов
 
-    public ItemTracker[] findAll() {
+    public List<ItemTracker> findAll() {
         return Arrays.copyOf(items, position);
     }
 
@@ -76,12 +83,15 @@ public class Tracker {
     // сравнивая name (используя метод getName класса Item) с аргументом метода String key.
     // Элементы, у которых совпадает name, копирует в результирующий массив и возвращает его;
 
-    public ItemTracker[] findByName(String key) {
+    public List<ItemTracker> findByName(String key) {
+        //ItemTracker[] findbynameitems = new ItemTracker[position];
         ItemTracker[] findbynameitems = new ItemTracker[position];
         int count = 0;
         for (int i = 0; i < position; i++) {
-            if (items[i].getName().equals(key)) {
-                findbynameitems[count++] = items[i];
+            //if (items[i].getName().equals(key))
+            if (items.get(i).getName().equals(key)) {
+                //findbynameitems[count++] = items[i];
+                findbynameitems = items.get(i);
             }
         }
         return Arrays.copyOf(findbynameitems, count);
