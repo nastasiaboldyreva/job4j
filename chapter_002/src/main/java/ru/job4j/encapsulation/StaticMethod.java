@@ -1,5 +1,7 @@
 package ru.job4j.encapsulation;
 
+import java.util.List;
+
 public class StaticMethod {
 
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
@@ -12,10 +14,13 @@ public class StaticMethod {
         }
     }
 
-    private void showMenu(UserAction[] actions) {
+    private void showMenu(List<UserAction> actions) {
         System.out.println("Menu: ");
-        for (int index = 0; index < actions.length; index++) {
-            System.out.println(index + ". " + actions[index].name());
+//        for (int index = 0; index < actions.length; index++) {
+//            System.out.println(index + ". " + actions[index].name());
+//        }
+        for (int i : actions) {
+            System.out.println(i + ". " + actions.add(i).name());
         }
     }
 
