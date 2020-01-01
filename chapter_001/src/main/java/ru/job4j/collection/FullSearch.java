@@ -9,6 +9,7 @@ public class FullSearch {
         HashSet<String> numbers = new HashSet<>();
         for(Task duplicate : list) {
             duplicate.equals(list);
+
         }
         return numbers;
     }
