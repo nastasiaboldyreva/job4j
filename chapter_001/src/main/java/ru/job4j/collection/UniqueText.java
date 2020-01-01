@@ -5,7 +5,6 @@ import java.util.HashSet;
 public class UniqueText {
     public static boolean isEquals(String originText, String duplicateText) {
         boolean rsl = true;
-
         //Преобразование строк в массив слов
         String[] origin = originText.split(" ");
 
@@ -14,13 +13,12 @@ public class UniqueText {
 
         HashSet<String> check = new HashSet<>();
 
-        for(String neworigin : origin) {
-            check.add(neworigin);
+        for (String new_origin : origin) {
+            check.add(new_origin);
         }
-        for(String newtext : text) {
-            check.contains(newtext);
+        for (String new_text : text) {
+            check.contains(new_text);
         }
-
         return rsl;
     }
 }
