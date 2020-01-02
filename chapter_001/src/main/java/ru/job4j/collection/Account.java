@@ -30,7 +30,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "passport='" + passport + '\' ' +
+                "passport='" + passport + '\'' +
                 ", username='" + username + '\'' +
                 ", deposit='" + deposit + '\'' +
                 '}';
