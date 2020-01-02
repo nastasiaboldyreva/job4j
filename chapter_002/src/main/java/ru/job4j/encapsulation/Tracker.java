@@ -9,7 +9,7 @@ import java.util.List;
 public class Tracker {
 
     private final List<ItemTracker> items = new ArrayList<>();
-    private int position = 0;
+    //private int position = 0;
 
     // 1-добавление заявок - public Item add(Item item);
     public ItemTracker add(ItemTracker itemtracker) {
@@ -31,7 +31,7 @@ public class Tracker {
 
     public boolean replace(String id, ItemTracker itemtracker) {
         boolean res = false;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < items.size(); i++) {
             //if (items[i].getId().equals(id))
             if (items.get(i).getId().equals(id)) {
                 itemtracker.setId(id);
@@ -54,7 +54,7 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean res = false;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < items.size(); i++) {
             //if (items[i].getId().equals(id))
             if (items.get(i).getId().equals(id)) {
                 //System.arraycopy(items, i + 1, items, i, items.size() - i - 1);
@@ -74,7 +74,7 @@ public class Tracker {
     // возвращает копию массива this.items без null элементов
 
     public List<ItemTracker> findAll() {
-        return Arrays.copyOf(items, position);
+        return Arrays.copyOf(items, items.size());
     }
 
 
@@ -88,7 +88,7 @@ public class Tracker {
         //ItemTracker[] findbynameitems = new ItemTracker[position];
         List<ItemTracker> findbynameitems = new ArrayList<>();
         int count = 0;
-        for (int i = 0; i < position; i++) {
+        for (int i = 0; i < items.size(); i++) {
             //if (items[i].getName().equals(key))
             if (items.get(i).getName().equals(key)) {
                 //findbynameitems[count++] = items[i];
@@ -107,7 +107,7 @@ public class Tracker {
 
     public ItemTracker findById(String id) {
             ItemTracker itemTracker = null;
-            for (int i = 0; i < position; i++) {
+            for (int i = 0; i < items.size(); i++) {
                 if (items.get(i).getId().equals(id)) {
                     //itemTracker = items[i];
                     itemTracker = items.get(i);
