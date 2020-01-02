@@ -1,5 +1,6 @@
 package ru.job4j.encapsulation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StaticMethod {
@@ -28,14 +29,14 @@ public class StaticMethod {
         Input input = new ConsoleInput();
         Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
-        List<UserAction> actions = {new CreateAction(),
-                new DeleteAction(),
-                new EditAction(),
-                new FindByIdAction(),
-                new FindByNameAction(),
-                new ShowAction(),
-                new FindAllAction()
-        };
+        List<UserAction> actions = new ArrayList<>();
+        actions.add(new CreateAction());
+        actions.add(new DeleteAction());
+        actions.add(new EditAction());
+        actions.add(new FindByIdAction());
+        actions.add(new FindByNameAction());
+        actions.add(new ShowAction());
+        actions.add(new FindAllAction());
         new StaticMethod().init(validate, tracker, actions);
     }
 }
