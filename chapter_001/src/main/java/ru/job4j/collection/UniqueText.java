@@ -17,8 +17,7 @@ public class UniqueText {
             check.add(new_origin);
         }
         for (String new_text : text) {
-            check.add(new_text);
-            if(check.contains(new_text)) {
+            if(!check.contains(new_text)) {
                 rsl = false;
                 break;
             }
