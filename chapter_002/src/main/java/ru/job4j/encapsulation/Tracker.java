@@ -59,7 +59,7 @@ public class Tracker {
             if (items.get(i).getId().equals(id)) {
                 //System.arraycopy(items, i + 1, items, i, items.size() - i - 1);
                 items.remove(i);
-                position--;
+                //position--;
                 res = true;
                 break;
             }
@@ -74,7 +74,8 @@ public class Tracker {
     // возвращает копию массива this.items без null элементов
 
     public List<ItemTracker> findAll() {
-        return Arrays.copyOf(items, items.size());
+        //return Arrays.copyOf(items, items.size());
+        return items;
     }
 
 
@@ -87,7 +88,7 @@ public class Tracker {
     public List<ItemTracker> findByName(String key) {
         //ItemTracker[] findbynameitems = new ItemTracker[position];
         List<ItemTracker> findbynameitems = new ArrayList<>();
-        int count = 0;
+        //int count = 0;
         for (int i = 0; i < items.size(); i++) {
             //if (items[i].getName().equals(key))
             if (items.get(i).getName().equals(key)) {
@@ -95,7 +96,8 @@ public class Tracker {
                 findbynameitems.add(items.get(i));
             }
         }
-        return Arrays.copyOf(findbynameitems, count);
+        //return Arrays.copyOf(findbynameitems, count);
+        return findbynameitems;
     }
 
 

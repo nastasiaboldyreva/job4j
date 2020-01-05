@@ -20,7 +20,7 @@ public class StaticMethod {
 //        for (int index = 0; index < actions.length; index++) {
 //            System.out.println(index + ". " + actions[index].name());
 //        }
-        for (int i : actions) {
+        for (UserAction i : actions) {
             System.out.println(i + ". " + actions.add(i).name());
         }
     }
