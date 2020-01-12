@@ -1,6 +1,6 @@
 package ru.job4j.collection;
 
-import org.jetbrains.annotations.NotNull;
+
 
 public class Job implements Comparable<Job> {
     //два поля: имя работы и приоритет исполнения.
@@ -26,10 +26,9 @@ public class Job implements Comparable<Job> {
     }
 
     @Override
-    public int compareTo(@NotNull Job another) {
-        return Integer.compare(priority, another.priority);
+    public int compareTo(Job o) {
+        return 0;
     }
-
 }
 
 
