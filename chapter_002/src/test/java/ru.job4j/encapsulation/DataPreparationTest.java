@@ -44,7 +44,8 @@ public class DataPreparationTest {
 
         //ItemTracker[] found = tracker.findByName(itemtracker.getName());
         List<ItemTracker> found = tracker.findByName(itemtracker.getName());
-        assertThat(found[0].getName(), is("find by name"));
+        //assertThat(found[0].getName(), is("find by name"));
+        assertThat(found.add().getName(), is("find by name"));
     }
 
 }
