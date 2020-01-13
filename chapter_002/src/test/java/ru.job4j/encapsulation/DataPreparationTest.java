@@ -1,6 +1,9 @@
 package ru.job4j.encapsulation;
 
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -39,7 +42,8 @@ public class DataPreparationTest {
         String[] answers = {itemtracker.getName()};
         new FindByNameAction().execute(new StubInputStatic(answers), tracker);
 
-        ItemTracker[] found = tracker.findByName(itemtracker.getName());
+        //ItemTracker[] found = tracker.findByName(itemtracker.getName());
+        List<ItemTracker> found = tracker.findByName(itemtracker.getName());
         assertThat(found[0].getName(), is("find by name"));
     }
 
