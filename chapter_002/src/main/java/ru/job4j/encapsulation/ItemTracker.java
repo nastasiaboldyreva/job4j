@@ -1,6 +1,8 @@
 package ru.job4j.encapsulation;
 
-public class ItemTracker {
+import java.util.Comparator;
+
+public class ItemTracker implements Comparable<ItemTracker>{
     private String id;
     private String name;
 
@@ -24,7 +26,15 @@ public class ItemTracker {
         this.name = name;
     }
 
+    @Override
+    public int compareTo(ItemTracker o) {
+        return 0;
+    }
+}
 
-
-
+public class ItemTracker implements Comparator<ItemTracker> {
+    @Override
+    public int compare(ItemTracker o1, ItemTracker o2) {
+        return 0;
+    }
 }
