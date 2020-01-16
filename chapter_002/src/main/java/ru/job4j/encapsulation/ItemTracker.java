@@ -28,13 +28,13 @@ public class ItemTracker implements Comparable<ItemTracker>{
 
     @Override
     public int compareTo(ItemTracker o) {
-        return 0;
+        return name.compareTo(o.getName());
     }
 }
 
-public class ItemTracker implements Comparator<ItemTracker> {
+class ItemTrackerSort implements Comparator<ItemTracker> {
     @Override
     public int compare(ItemTracker o1, ItemTracker o2) {
-        return 0;
+        return o1.getName().compareTo(o2.getName());
     }
 }
