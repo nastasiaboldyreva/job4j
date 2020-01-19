@@ -13,7 +13,11 @@ public class StaticMethodTest {
 
     @Test
     public void whenAddItem() {
-        String[] answers = {"Fix PC"};
+        //String[] answers = {"Fix PC"};
+        List<String> answers = new ArrayList<>();
+        answers.add("Fix PC");
+
+        //Input input = new StubInputStatic(answers);
         Input input = new StubInputStatic(answers);
         Tracker tracker = new Tracker();
         new CreateAction().execute(input, tracker);
@@ -22,9 +26,10 @@ public class StaticMethodTest {
         //ItemTracker expected = new ItemTracker("Fix PC");
         List<ItemTracker> created = tracker.findAll();
         List<ItemTracker> expected = new ArrayList<>();
+        expected.add(new ItemTracker("Fix PC"));
 
         //assertThat(created.getName(), is(expected.getName()));
-        assertThat(created.get(name), is(expected.get(name));
+        assertThat(created.get(0).getName(), is(expected.get(0).getName()));
 
     }
 
@@ -46,10 +51,12 @@ public class StaticMethodTest {
         System.setOut(new PrintStream(out));
 
         //выполняем действие с выводом на консоль
-        StubInputStatic input = new StubInputStatic(new String[] {"0"});
+        //StubInputStatic input = new StubInputStatic(new String[] {"0"});
+        StubInputStatic input = new StubInputStatic(new List<String> );
         StubAction action = new StubAction();
         //new StaticMethod().init(input, new Tracker(), new UserAction[] {action});
-        new StaticMethod().init(input, new Tracker(), new List<UserAction> actions);
+        List<UserAction> actions = new ArrayList<>();
+        new StaticMethod().init(input, new Tracker(), actions);
 
         //проверяем содержимое вывода
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
