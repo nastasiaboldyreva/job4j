@@ -52,10 +52,10 @@ public class StaticMethodTest {
 
         //выполняем действие с выводом на консоль
         //StubInputStatic input = new StubInputStatic(new String[] {"0"});
-        StubInputStatic input = new StubInputStatic(new List<String> );
+        StubInputStatic input = new StubInputStatic(List.of("0"));
         StubAction action = new StubAction();
         //new StaticMethod().init(input, new Tracker(), new UserAction[] {action});
-        List<UserAction> actions = new ArrayList<>();
+        List<UserAction> actions = List.of(action);
         new StaticMethod().init(input, new Tracker(), actions);
 
         //проверяем содержимое вывода

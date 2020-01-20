@@ -5,7 +5,7 @@ import java.util.List;
 
 public class StubInputStatic implements Input {
     //private String[] answers;
-    //private int position = 0;
+    private int position = 0;
     private List<String> answers;
 
 
@@ -15,7 +15,7 @@ public class StubInputStatic implements Input {
     @Override
     public String askStr(String question) {
         //return answers[position++];
-        return answers;
+        return answers.get(position++);
     }
 
     @Override

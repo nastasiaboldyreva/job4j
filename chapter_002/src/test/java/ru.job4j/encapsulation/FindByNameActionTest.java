@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 import java.util.StringJoiner;
 
 import static org.hamcrest.core.Is.is;
@@ -22,7 +23,8 @@ public class FindByNameActionTest {
         ItemTracker itemtracker = new ItemTracker("fix bug");
         tracker.add(itemtracker);
         FindByNameAction act = new FindByNameAction();
-        act.execute(new StubInputStatic(new String[] {"fix bug"}), tracker);
+        //act.execute(new StubInputStatic(new String[] {"fix bug"}), tracker);
+        act.execute(new StubInputStatic(List.of("fix bug")),tracker);
 
         //проверяем содержимое вывода
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
