@@ -11,10 +11,8 @@ public class JobSorter {
                 new Job("Impl task", 2),
                 new Job("Reboot server", 1)
         );
-        System.out.println(jobs);
-        Collections.sort(jobs);
-        System.out.println(jobs);
-        Collections.sort(jobs, new SortByNameJob());
+
+        Collections.sort(jobs, new JobDescByName().thenComparing(new JobDescByPriority()));
         System.out.println(jobs);
     }
 }
