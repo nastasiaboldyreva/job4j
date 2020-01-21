@@ -5,10 +5,24 @@ import java.util.Objects;
 public class User implements Comparable<User> {
     private String name;
     private int age;
+    private int priority;
 
-    public User(String name, int age) {
+    public User(String name, int age, int priority) {
         this.name = name;
         this.age = age;
+        this.priority = priority;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getPriority() {
+        return priority;
     }
 
     //compareTo должен сравнить имена, если они равны, то сравнить возраст.
