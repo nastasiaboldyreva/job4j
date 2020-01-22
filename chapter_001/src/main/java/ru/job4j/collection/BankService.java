@@ -51,23 +51,34 @@ public class BankService {
     // Сначала нужно найти пользователя.
     // Потом получить список счетов этого пользователя и в нем найти нужный счет.
     public BankAccount findByRequisite(String passport, String requisite) {
+        BankAccount account = null;
         BankUser user = findByPassport(passport);
         if (user != null) {
-            List<Account> accounts = new ArrayList<>();
-            BankAccount bankAccount =
-            accounts.indexOf(bankAccount.getRequisite(requisite));
-        }
-
+            for(BankUser check : users.keySet()) {
+                if(check.getPassport().equals(account.getRequisite())) {
+                    break;
+                }
+            }
+        } return account;
     }
 
     //Метод для перечисления денег с одного счёта на другой счёт.
     //Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят),
     // то метод должен вернуть false.
-    public boolean tranferMoner(String srcPassport, String srcRequisite,
+    public boolean transferMoney(String srcPassport, String srcRequisite,
                                 String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
+        BankUser bankUser = findByPassport(srcPassport);
+        BankUser bankUser2 = findByPassport(destPassport);
+        //if((!users.containsKey(srcPassport))||(!users.containsKey(srcRequisite))) { }
+        if(users.containsKey(srcPassport)) {
 
+        }
         return rsl;
+    }
+
+    public BankUser remove(String passport) {
+
     }
 }
 
