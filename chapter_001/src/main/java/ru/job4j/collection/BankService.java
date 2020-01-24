@@ -76,17 +76,11 @@ public class BankService {
             BankAccount srcBankAccount = accounts.get(index.Of(srcRequisite));
             BankAccount destBankAccount = accounts.get(index.Of(destRequisite));
 
-
-
+            users.put(srcBankUser, List.of(srcBankAccount));
+            users.put(destBankUser, List.of(destBankAccount));
 
         }
 
-//        BankUser bankUser = findByPassport(srcPassport);
-//        BankUser bankUser2 = findByPassport(destPassport);
-//        //if((!users.containsKey(srcPassport))||(!users.containsKey(srcRequisite))) { }
-//        if(users.containsKey(srcPassport)) {
-//
-//        }
         return rsl;
     }
 
