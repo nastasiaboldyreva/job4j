@@ -10,7 +10,9 @@ public class StubInputStatic implements Input {
 
 
     //public StubInputStatic(String[] answers) { this.answers = answers; }
-    public StubInputStatic(List<String> answers) { this.answers = answers; }
+    public StubInputStatic(List<String> answers) {
+        this.answers = answers;
+    }
 
     @Override
     public String askStr(String question) {

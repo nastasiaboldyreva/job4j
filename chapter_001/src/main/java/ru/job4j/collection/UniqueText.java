@@ -13,11 +13,11 @@ public class UniqueText {
 
         HashSet<String> check = new HashSet<>();
 
-        for (String new_origin : origin) {
-            check.add(new_origin);
+        for (String newOrigin : origin) {
+            check.add(newOrigin);
         }
-        for (String new_text : text) {
-            if(!check.contains(new_text)) {
+        for (String newText : text) {
+            if (!check.contains(newText)) {
                 rsl = false;
                 break;
             }

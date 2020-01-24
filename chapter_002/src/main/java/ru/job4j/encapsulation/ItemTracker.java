@@ -2,7 +2,7 @@ package ru.job4j.encapsulation;
 
 import java.util.Comparator;
 
-public class ItemTracker implements Comparable<ItemTracker>{
+public class ItemTracker implements Comparable<ItemTracker> {
     private String id;
     private String name;
 

@@ -29,18 +29,24 @@ public class User implements Comparable<User> {
     @Override
     public int compareTo(User o) {
         int rsl = this.name.compareTo(o.name);
-        if(rsl == 0) {
+        if (rsl == 0) {
             rsl = Integer.compare(this.age, o.age);
-        } return rsl;
+        }
+        return rsl;
     }
 
     //методы equals и hashCode нужны для тестов, где мы используем методы сравнения моделей user.equals.
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
-        return age == user.age &&
+        return age == user.age
+                &&
                 name.equals(user.name);
     }
 

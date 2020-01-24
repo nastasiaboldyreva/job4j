@@ -1,6 +1,6 @@
 package ru.job4j.strategy;
 
-public class TriangleShape implements Shape{
+public class TriangleShape implements Shape {
     @Override
     public String draw() {
         StringBuilder pic = new StringBuilder();

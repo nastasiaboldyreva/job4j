@@ -3,9 +3,7 @@ package ru.job4j.collection;
 
 
 public class Job implements Comparable<Job> {
-    //два поля: имя работы и приоритет исполнения.
-    //задача написать для него сортировку по возрастанию по полю priority,
-    // а так же сделать сортировку по имени по возрастанию.
+
     private String name;
     private int priority;
 
@@ -14,14 +12,22 @@ public class Job implements Comparable<Job> {
         this.priority = priority;
     }
 
-    public String getName() { return name; }
-    public int getPriority() { return priority; }
+    public String getName() {
+        return name;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
 
     @Override
     public String toString() {
-        return "Job{" +
-                "name='" + name + '\'' +
-                ", priority=" + priority +
+        return "Job{"
+                +
+                "name='" + name + '\''
+                +
+                ", priority=" + priority
+                +
                 '}';
     }
 
