@@ -65,15 +65,28 @@ public class BankService {
     //Метод для перечисления денег с одного счёта на другой счёт.
     //Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят),
     // то метод должен вернуть false.
+
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                 String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        BankUser bankUser = findByPassport(srcPassport);
-        BankUser bankUser2 = findByPassport(destPassport);
-        //if((!users.containsKey(srcPassport))||(!users.containsKey(srcRequisite))) { }
-        if(users.containsKey(srcPassport)) {
+        List<BankAccount> accounts = new ArrayList<>();
+        BankUser srcBankUser = findByPassport(srcPassport);
+        BankUser destBankUser = findByPassport(destPassport);
+        if ((srcBankUser != null ) && (destBankUser != null)) {
+            BankAccount srcBankAccount = accounts.get(index.Of(srcRequisite));
+            BankAccount destBankAccount = accounts.get(index.Of(destRequisite));
+
+
+
 
         }
+
+//        BankUser bankUser = findByPassport(srcPassport);
+//        BankUser bankUser2 = findByPassport(destPassport);
+//        //if((!users.containsKey(srcPassport))||(!users.containsKey(srcRequisite))) { }
+//        if(users.containsKey(srcPassport)) {
+//
+//        }
         return rsl;
     }
 
