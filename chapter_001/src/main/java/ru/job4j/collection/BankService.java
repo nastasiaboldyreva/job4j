@@ -73,12 +73,12 @@ public class BankService {
         BankUser srcBankUser = findByPassport(srcPassport);
         BankUser destBankUser = findByPassport(destPassport);
         if ((srcBankUser != null ) && (destBankUser != null)) {
-            BankAccount srcBankAccount = accounts.get(index.Of(srcRequisite));
-            BankAccount destBankAccount = accounts.get(index.Of(destRequisite));
-
-            users.put(srcBankUser, List.of(srcBankAccount));
-            users.put(destBankUser, List.of(destBankAccount));
-
+            int srcBankAccount = accounts.indexOf(srcRequisite);
+            int destBankAccount = accounts.indexOf(destRequisite);
+            for(BankAccount transfer : accounts) {
+                users.put(srcBankUser, transfer.getRequisite());
+                users.put(destBankUser, transfer.getRequisite());
+            }
         }
 
         return rsl;
