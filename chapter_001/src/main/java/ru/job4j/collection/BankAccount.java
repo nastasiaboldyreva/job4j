@@ -28,6 +28,16 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public boolean transfer(BankAccount destination, double amount) {
+        boolean result = false;
+        if(balance - amount >= 0) {
+            destination.balance += amount;
+            balance -= amount;
+            result = true;
+        }
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

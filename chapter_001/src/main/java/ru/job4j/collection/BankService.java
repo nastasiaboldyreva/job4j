@@ -7,35 +7,36 @@ import java.util.Map;
 import java.util.Set;
 
 public class BankService {
-    //Это поле содержит всех пользователей системы с привязанными к ним счетами.
+    /**
+     * This field contains all users and their accounts
+     */
     private Map<BankUser, List<BankAccount>> users = new HashMap<>();
 
-    //Это метод должен добавить пользователя в систему.
-    //Чтобы добавить пользователя в систему нужно использовать метод Map.put.
-    //Этот метод принимает два параметра: пользователя и список счетов.
-    //По умолчанию нужно добавить пустой список - new ArrayList<Account>().
-    //В методе должна быть проверка, что такого пользователя еще нет в системе.
-    // Если он есть, то нового добавлять не надо.
+    /**
+     * This method adds users in the system
+     * it checks if user is new then add
+     * if user is not new - do not add
+     */
     public void addBankUser(BankUser bankUser) {
         users.putIfAbsent(bankUser, new ArrayList<>());
         }
 
 
-// Должен добавить новый счет к пользователю.
-// сперва пользователя нужно найти по паспорту. Для этого нужно использовать метод findByPassport.
-// После этого мы получим список всех счетов пользователя и добавим новый счет к ним.
-// В этом методе должна быть проверка, что такого счета у пользователя еще нет.
+    /**
+     * This method add new account to user
+     */
     public void addBankAccount(String passport, BankAccount bankAccount) {
         BankUser user = findByPassport(passport);
-        if (user!=null) {
+        if (user != null) {
             users.get(user).add(bankAccount);
         }
 
     }
 
+    /**
+     * This method searches user by passport
+     */
 
-    //Это метод ищет пользователя по номеру паспорта.
-    // Здесь нужно использовать перебор всех элементов через цикл for-each и метод Map.keySet.
     public BankUser findByPassport(String passport) {
         BankUser bankUser = null;
         for(BankUser person : users.keySet()) {
@@ -47,45 +48,43 @@ public class BankService {
         return bankUser;
     }
 
-    //Этот метод ищет счет пользователя по реквизитам.
-    // Сначала нужно найти пользователя.
-    // Потом получить список счетов этого пользователя и в нем найти нужный счет.
+
+    /**
+     * This method should find user by requisites
+     * first step - to find user
+     * second step - to get users list of accounts
+     * then to find account that we need
+     */
+
     public BankAccount findByRequisite(String passport, String requisite) {
-        BankAccount account = null;
+        BankAccount result = null;
         BankUser user = findByPassport(passport);
         if (user != null) {
-            for(BankUser check : users.keySet()) {
-                if(check.getPassport().equals(account.getRequisite())) {
+            List<BankAccount> userAccounts = users.get(user);
+            for (BankAccount account : userAccounts) {
+                if (account.getRequisite().equals(requisite)) {
+                    result = account;
                     break;
                 }
             }
-        } return account;
+        } return result;
     }
 
-    //Метод для перечисления денег с одного счёта на другой счёт.
-    //Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят),
-    // то метод должен вернуть false.
+
+    /**
+     * Transfer money method from one account to another
+     * */
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                 String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        List<BankAccount> accounts = new ArrayList<>();
-        BankUser srcBankUser = findByPassport(srcPassport);
-        BankUser destBankUser = findByPassport(destPassport);
-        if ((srcBankUser != null ) && (destBankUser != null)) {
-            int srcBankAccount = accounts.indexOf(srcRequisite);
-            int destBankAccount = accounts.indexOf(destRequisite);
-            for(BankAccount transfer : accounts) {
-                users.put(srcBankUser, transfer.getRequisite());
-                users.put(destBankUser, transfer.getRequisite());
-            }
+        BankAccount srcAccount = findByRequisite(srcPassport, srcRequisite);
+        BankAccount destAccount = findByRequisite(destPassport, destRequisite);
+        if (srcAccount != null && destAccount != null) {
+            rsl = srcAccount.transfer(destAccount, amount);
         }
-
         return rsl;
     }
 
-    public BankUser remove(String passport) {
-
-    }
 }
 
