@@ -1,28 +1,24 @@
 package ru.job4j.collection;
 
 import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
 
+
+/**
+ * Comparator for Strings
+ */
 public class StringCompare implements Comparator<String>{
 
     @Override
     public int compare(String left, String right) {
-        Set<Character> comparing = new TreeSet<>();
-        int min = comparing.size();
-        int result = 0;
-        for (int i = 0; i < min; i++) {
-           char a = left.charAt(i);
-           char b = right.charAt(i);
-           int abcompare = Character.compare(a, b);
-           if(abcompare != 0) { break; }
-
+        int minlength = Math.min(left.length(), right.length());
+        int result = left.length()-right.length();
+        for (int i = 0; i < minlength; i++) {
+           int tmpResult = Character.compare(left.charAt(i), right.charAt(i));
+           if (tmpResult != 0) {
+               result = tmpResult;
+               break;
+           }
         }
-
-        if(result != 0) {
-            result = a - b;
-        }
-
         return result;
     }
 }
