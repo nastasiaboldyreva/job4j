@@ -31,7 +31,7 @@ public class UserTest {
                 .compareTo(
                         new User("Ivan", 31, 2)
                 );
-
+        assertThat(rslt, greaterThan(0));
     }
 
     @Test
