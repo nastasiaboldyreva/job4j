@@ -8,10 +8,9 @@ public class ConvertList {
         List<Integer> rsl = new ArrayList<>();
         for (int[] row : list) {
             for (int i : row)  {
-                System.out.println(i);
+                rsl.add(i);
             }
         }
-
         return rsl;
     }
 }

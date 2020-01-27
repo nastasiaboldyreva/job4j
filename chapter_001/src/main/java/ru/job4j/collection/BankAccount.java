@@ -30,7 +30,7 @@ public class BankAccount {
 
     public boolean transfer(BankAccount destination, double amount) {
         boolean result = false;
-        if(balance - amount >= 0) {
+        if (balance - amount >= 0) {
             destination.balance += amount;
             balance -= amount;
             result = true;

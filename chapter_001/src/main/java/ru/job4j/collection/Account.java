@@ -4,7 +4,14 @@ import java.util.Objects;
 
 public class Account {
 
+    /**
+     * This is String field passport whereI store users's passport data
+     */
     private String passport;
+
+    /**
+     * This is String field passport whereI store username
+     */
     private String username;
     private String deposit;
 

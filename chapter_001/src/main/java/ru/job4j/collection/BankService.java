@@ -39,8 +39,8 @@ public class BankService {
 
     public BankUser findByPassport(String passport) {
         BankUser bankUser = null;
-        for(BankUser person : users.keySet()) {
-            if(person.getPassport().equals(passport)) {
+        for (BankUser person : users.keySet()) {
+            if (person.getPassport().equals(passport)) {
                 bankUser = person;
                 break;
             }
@@ -67,7 +67,8 @@ public class BankService {
                     break;
                 }
             }
-        } return result;
+        }
+        return result;
     }
 
 
