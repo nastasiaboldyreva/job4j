@@ -4,43 +4,32 @@ import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Departments {
 
     public static List<String> fillGaps(List<String> deps) {
-        List<String> rsl = new ArrayList<>();
-        return rsl;
-
-        /**
-         * HashSet allows to eliminate duplicates
-         * which may be result of sequent individual departments summing
-         */
-        // Чтобы реализовать метод fillGaps, нужно определить,
-        // какие элементы отсутствуют в системе.
-        // Для этого каждую входящую строку нужно разбить на одиночные элементы.
-        // Для этого можно использовать метод String.split("/").
-        // Этот метод вернет массив одиночных элементов.
-        // Далее нужно через цикл последовательно складывать элементы и добавлять из в множество
-        // Используйте в качестве промежуточного хранения HashSet.
-
-        HashSet<String> tmp = new HashSet<>();
+        TreeSet<String> tmp = new TreeSet<>();
         for (String value : deps) {
-            String start = " ";
-            for (String el : value.split("/")) {
-                tmp.add(start + "/" + el);
-
+            String[] parts = value.split("/");
+            String start = parts[0];
+            tmp.add(start);
+            for (int i = 1; i < parts.length; i++) {
+                start += "/" + parts[i];
+                tmp.add(start);
             }
+
         } return new ArrayList<>(tmp);
     }
 
 
-
-
-    public static void sortAsc(List<String> orgs) {
-
-    }
-
-    public static void sortDest(List<String> orgs) {
-
-    }
+//
+//
+//    public static void sortAsc(List<String> orgs) {
+//
+//    }
+//
+//    public static void sortDest(List<String> orgs) {
+//
+//    }
 }
