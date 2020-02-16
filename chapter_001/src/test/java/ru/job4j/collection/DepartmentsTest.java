@@ -7,7 +7,6 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class DepartmentsTest {
-
     @Test
     public void whenMissed() {
         List<String> input = Arrays.asList("k1/sk1");
