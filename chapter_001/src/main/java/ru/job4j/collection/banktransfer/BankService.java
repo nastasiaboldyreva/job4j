@@ -1,4 +1,4 @@
-package ru.job4j.collection.bank;
+package ru.job4j.collection.banktransfer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
