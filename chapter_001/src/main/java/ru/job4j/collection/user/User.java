@@ -1,4 +1,4 @@
-package ru.job4j.collection;
+package ru.job4j.collection.user;
 
 import java.util.Objects;
 
@@ -25,7 +25,7 @@ public class User implements Comparable<User> {
         return priority;
     }
 
-    //compareTo должен сравнить имена, если они равны, то сравнить возраст.
+
     @Override
     public int compareTo(User o) {
         int rsl = this.name.compareTo(o.name);
@@ -35,7 +35,7 @@ public class User implements Comparable<User> {
         return rsl;
     }
 
-    //методы equals и hashCode нужны для тестов, где мы используем методы сравнения моделей user.equals.
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
