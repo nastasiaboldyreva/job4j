@@ -1,10 +1,9 @@
-package ru.job4j.collection;
+package ru.job4j.collection.bank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class BankService {
     /**

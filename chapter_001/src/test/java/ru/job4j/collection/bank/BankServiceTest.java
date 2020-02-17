@@ -1,6 +1,9 @@
-package ru.job4j.collection;
+package ru.job4j.collection.bank;
 
 import org.junit.Test;
+import ru.job4j.collection.bank.BankAccount;
+import ru.job4j.collection.bank.BankService;
+import ru.job4j.collection.bank.BankUser;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
