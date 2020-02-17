@@ -1,9 +1,7 @@
-package ru.job4j.collection;
+package ru.job4j.collection.order;
 
 import java.util.HashMap;
 import java.util.List;
-
-//Задача преобразовать одну коллекцию в другую.
 
 public class OrderConvert {
     public static HashMap<String, Order> process(List<Order> orders) {
