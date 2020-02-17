@@ -1,4 +1,6 @@
-package ru.job4j.collection;
+package ru.job4j.collection.account;
+
+import ru.job4j.collection.account.Account;
 
 import java.util.HashSet;
 import java.util.List;

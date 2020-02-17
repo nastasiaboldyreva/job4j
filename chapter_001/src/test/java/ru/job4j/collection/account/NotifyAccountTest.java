@@ -1,6 +1,8 @@
-package ru.job4j.collection;
+package ru.job4j.collection.account;
 
 import org.junit.Test;
+import ru.job4j.collection.account.Account;
+import ru.job4j.collection.account.NotifyAccount;
 
 import java.util.Arrays;
 import java.util.HashSet;
