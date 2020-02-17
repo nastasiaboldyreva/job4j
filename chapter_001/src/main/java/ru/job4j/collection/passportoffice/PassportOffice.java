@@ -1,7 +1,5 @@
 package ru.job4j.collection.passportoffice;
 
-import ru.job4j.collection.passportoffice.Citizen;
-
 import java.util.HashMap;
 import java.util.Map;
 

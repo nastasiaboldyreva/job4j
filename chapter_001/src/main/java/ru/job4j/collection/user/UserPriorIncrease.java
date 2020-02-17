@@ -1,7 +1,5 @@
 package ru.job4j.collection.user;
 
-import ru.job4j.collection.user.User;
-
 import java.util.Comparator;
 
 public class UserPriorIncrease implements Comparator<User> {

@@ -1,6 +1,6 @@
 package ru.job4j.collection.usagecollections;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 public class UsageArrayList {
 
