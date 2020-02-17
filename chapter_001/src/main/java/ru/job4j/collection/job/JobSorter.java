@@ -1,4 +1,8 @@
-package ru.job4j.collection;
+package ru.job4j.collection.job;
+
+import ru.job4j.collection.job.Job;
+import ru.job4j.collection.job.JobDescByName;
+import ru.job4j.collection.job.JobDescByPriority;
 
 import java.util.Arrays;
 import java.util.Collections;
