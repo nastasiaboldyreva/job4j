@@ -2,8 +2,20 @@ package ru.job4j.encapsulation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class StaticMethod {
+
+    private final Input input;
+    private final Tracker tracker;
+    private final Consumer<String> output;
+
+    public StaticMethod(Input input, Tracker tracker, Consumer<String> output) {
+        this.input = input;
+        this.tracker = tracker;
+        this.output = output;
+    }
+
 
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
@@ -17,10 +29,6 @@ public class StaticMethod {
 
     private void showMenu(List<UserAction> actions) {
         System.out.println("Menu: ");
-//        for (int index = 0; index < actions.length; index++) {
-//            System.out.println(index + ". " + actions[index].name());
-//        }
-        //System.out.println(i + ". " + actions.add(i).name());
         int number = 0;
         for (UserAction i : actions) {
             System.out.println(number + ". " + i.name());
