@@ -8,8 +8,11 @@ import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class StaticMethodTest {
+
+    private final Consumer<String> output = new Consumer<>();
 
     @Test
     public void whenAddItem() {
