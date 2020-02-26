@@ -1,8 +1,9 @@
 package ru.job4j.encapsulation;
 
+import java.util.function.Consumer;
+
 public class StubAction implements UserAction {
 
-    //создаем поле call
     private boolean call = false;
 
     @Override
@@ -11,7 +12,7 @@ public class StubAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker, Consumer<String> output) {
         call = true;
         return false;
     }

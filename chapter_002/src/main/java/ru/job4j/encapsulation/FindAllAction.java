@@ -1,5 +1,7 @@
 package ru.job4j.encapsulation;
 
+import java.util.function.Consumer;
+
 public class FindAllAction implements UserAction {
     @Override
     public String name() {
@@ -7,9 +9,9 @@ public class FindAllAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Tracker tracker, Consumer<String> output) {
         for (ItemTracker itemtracker: tracker.findAll()) {
-            System.out.println(String.format("%s %s", itemtracker.getId(), itemtracker.getName()));
+            output.accept(String.format("%s %s", itemtracker.getId(), itemtracker.getName()));
         }
         return true;
     }

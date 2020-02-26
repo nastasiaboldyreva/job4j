@@ -31,7 +31,7 @@ public class StaticMethod {
         System.out.println("Menu: ");
         int number = 0;
         for (UserAction i : actions) {
-            System.out.println(number + ". " + i.name());
+            output.accept(number + ". " + i.name());
         }
     }
 

@@ -1,5 +1,7 @@
 package ru.job4j.encapsulation;
 
+import java.util.function.Consumer;
+
 public class FindByIdAction implements UserAction {
     @Override
     public String name() {
@@ -7,14 +9,14 @@ public class FindByIdAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Find item by id ===");
+    public boolean execute(Input input, Tracker tracker, Consumer<String> output) {
+        output.accept("=== Find item by id ===");
         String id = input.askStr("Enter id");
         ItemTracker itemTracker = tracker.findById(id);
         if (tracker.findById(id) != null) {
-            System.out.println(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
+            output.accept(String.format("%s: %s", itemTracker.getId(), itemTracker.getName()));
         } else {
-            System.out.println("Something wrong happened. Pls recheck id");
+            output.accept("Something wrong happened. Pls recheck id");
         }
         return true;
     }
