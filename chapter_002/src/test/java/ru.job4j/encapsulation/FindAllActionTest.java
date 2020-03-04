@@ -13,7 +13,15 @@ import static org.junit.Assert.*;
 
 public class FindAllActionTest {
 
-    private final Consumer<String> output = new Consumer<>();
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final Consumer<String> output = new Consumer<>(){
+        private final PrintStream stdout = new PrintStream(out);
+
+        @Override
+        public void accept(String s) {
+            stdout.println(s);
+        }
+    };
 
     @Test
     public void whenCheckOutput() {
@@ -40,7 +48,8 @@ public class FindAllActionTest {
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add(itemtracker.getId() + " " + itemtracker.getName())
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        //assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
         System.setOut(def);
     }
 }

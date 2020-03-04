@@ -12,7 +12,15 @@ import java.util.function.Consumer;
 
 public class StaticMethodTest {
 
-    private final Consumer<String> output = new Consumer<>();
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    private final Consumer<String> output = new Consumer<>(){
+        private final PrintStream stdout = new PrintStream(out);
+
+        @Override
+        public void accept(String s) {
+            stdout.println(s);
+        }
+    };
 
     @Test
     public void whenAddItem() {
@@ -33,8 +41,8 @@ public class StaticMethodTest {
     @Test
     public void whenPrtMenu() {
 
-        private final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        private final PrintStream def = System.out;
+        //private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        final PrintStream def = System.out;
         System.setOut(new PrintStream(out));
         StubInputStatic input = new StubInputStatic(List.of("0"));
         StubAction action = new StubAction();
@@ -44,7 +52,8 @@ public class StaticMethodTest {
                 .add("Menu: ")
                 .add("0. Stub action")
                 .toString();
-        assertThat(new String(out.toByteArray()), is(expect));
+        //assertThat(new String(out.toByteArray()), is(expect));
+        assertThat(this.output.toString(), is(expect));
         System.setOut(def);
     }
 }
