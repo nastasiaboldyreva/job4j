@@ -42,6 +42,7 @@ public class FindByNameActionTest {
         FindByNameAction act = new FindByNameAction();
         act.execute(new StubInputStatic(List.of("fix bug")), tracker);
 
+
         /**
          * проверяем содержимое вывода
          * */

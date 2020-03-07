@@ -6,13 +6,17 @@ import java.util.function.Consumer;
 
 public class StaticMethod {
 
-    private final Input input;
-    private final Tracker tracker;
+    //private final Input input;
+    //private final Tracker tracker;
+//    public StaticMethod(Input input, Tracker tracker, Consumer<String> output) {
+//        this.input = input;
+//        this.tracker = tracker;
+//        this.output = output;
+//    }
+
     private final Consumer<String> output;
 
-    public StaticMethod(Input input, Tracker tracker, Consumer<String> output) {
-        this.input = input;
-        this.tracker = tracker;
+    public StaticMethod(Consumer<String> output) {
         this.output = output;
     }
 
@@ -23,7 +27,7 @@ public class StaticMethod {
             this.showMenu(actions);
             int select = Integer.parseInt(input.askStr("Select: "));
             UserAction action = actions.get(select);
-            run = action.execute(input, tracker);
+            run = action.execute(input, tracker, output);
         }
     }
 
@@ -47,7 +51,8 @@ public class StaticMethod {
         actions.add(new FindByNameAction());
         actions.add(new ShowAction());
         actions.add(new FindAllAction());
-        new StaticMethod().init(validate, tracker, actions);
+        //new StaticMethod().init(validate, tracker, actions);
+        new StaticMethod(System.out::println).init(validate, tracker, actions);
     }
 }
 

@@ -14,6 +14,7 @@ public class StaticMethodTest {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final Consumer<String> output = new Consumer<>(){
+
         private final PrintStream stdout = new PrintStream(out);
 
         @Override
@@ -30,24 +31,24 @@ public class StaticMethodTest {
         Input input = new StubInputStatic(answers);
         Tracker tracker = new Tracker();
         new CreateAction().execute(input, tracker);
+        //CreateAction::execute;
         List<ItemTracker> created = tracker.findAll();
         List<ItemTracker> expected = new ArrayList<>();
         expected.add(new ItemTracker("Fix PC"));
         assertThat(created.get(0).getName(), is(expected.get(0).getName()));
-
     }
 
 
     @Test
     public void whenPrtMenu() {
-
         //private final ByteArrayOutputStream out = new ByteArrayOutputStream();
         final PrintStream def = System.out;
         System.setOut(new PrintStream(out));
         StubInputStatic input = new StubInputStatic(List.of("0"));
         StubAction action = new StubAction();
         List<UserAction> actions = List.of(action);
-        new StaticMethod().init(input, new Tracker(), actions);
+        //new StaticMethod().init(input, new Tracker(), actions);
+        new StaticMethod(System.out::println).init(input, new Tracker(), actions);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu: ")
                 .add("0. Stub action")

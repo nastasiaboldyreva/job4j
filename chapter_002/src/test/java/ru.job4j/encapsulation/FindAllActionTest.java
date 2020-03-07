@@ -14,7 +14,9 @@ import static org.junit.Assert.*;
 public class FindAllActionTest {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
     private final Consumer<String> output = new Consumer<>(){
+
         private final PrintStream stdout = new PrintStream(out);
 
         @Override
