@@ -12,7 +12,7 @@ public class FunctionsTest {
 
     @Test
     public void whenLinearFunctionThenLinearResults() {
-        Function function = new Function();
+        Functions function = new Functions();
         List<Double> result = function.diapason(5, 8, x -> 2 * x + 1);
         List<Double> expected = Arrays.asList(11D, 13D, 15D);
         assertThat(result, is(expected));
@@ -20,7 +20,7 @@ public class FunctionsTest {
 
     @Test
     public void whenQuadraticFunction() {
-        Function function = new Function();
+        Functions function = new Functions();
         List<Double> result = function.diapason(5, 8, x -> 3 * x * x + 2 * x + 1);
         List<Double> expected = Arrays.asList(86D, 121D, 162D);
         assertThat(result, is(expected));
@@ -28,7 +28,7 @@ public class FunctionsTest {
 
     @Test
     public void whenLogarithmicFunction() {
-        Function function = new Function();
+        Functions function = new Functions();
         List<Double> result = function.diapason(5, 8, x -> Math.log(x));
         List<Double> expected = Arrays.asList(1.609D, 1.792D, 1.946D);
         assertThat(result, is(expected));
