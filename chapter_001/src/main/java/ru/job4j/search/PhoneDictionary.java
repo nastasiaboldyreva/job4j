@@ -36,7 +36,7 @@ public class PhoneDictionary {
         Predicate<Person> findName = Predicate.isEqual(Person::getName);
         Predicate<Person> findAddress = Predicate.isEqual(Person::getAddress);
         Predicate<Person> findPhone = Predicate.isEqual(Person::getPhone);
-        Predicate<Person> combine =  ;
+        Predicate<Person> combine =  findSurname.or(findName).or(findAddress).or(findPhone);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
