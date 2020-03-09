@@ -7,6 +7,10 @@ public class Student {
         this.score = score;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
