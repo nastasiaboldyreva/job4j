@@ -32,10 +32,10 @@ public class PhoneDictionary {
 //    }
 
     public ArrayList<Person> find(String key) {
-        Predicate<Person> findSurname = Predicate.isEqual(Person::getSurname);
-        Predicate<Person> findName = Predicate.isEqual(Person::getName);
-        Predicate<Person> findAddress = Predicate.isEqual(Person::getAddress);
-        Predicate<Person> findPhone = Predicate.isEqual(Person::getPhone);
+        Predicate<Person> findSurname = s -> s.getAddress().equals(key);
+        Predicate<Person> findName = s -> s.getName().equals(key);
+        Predicate<Person> findAddress = s -> s.getAddress().equals(key);
+        Predicate<Person> findPhone = s -> s.getPhone().equals(key);
         Predicate<Person> combine =  findSurname.or(findName).or(findAddress).or(findPhone);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
