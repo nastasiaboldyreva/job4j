@@ -42,7 +42,7 @@ public class FindAllActionTest {
         ItemTracker itemtracker = new ItemTracker("fix bug");
         tracker.add(itemtracker);
         FindAllAction act = new FindAllAction();
-        act.execute(new StubInputStatic(new ArrayList<>()), tracker);
+        act.execute(new StubInputStatic(new ArrayList<>()), tracker, output);
 
         /**
          * проверяем содержимое вывода

@@ -30,7 +30,7 @@ public class StaticMethodTest {
         answers.add("Fix PC");
         Input input = new StubInputStatic(answers);
         Tracker tracker = new Tracker();
-        new CreateAction().execute(input, tracker);
+        new CreateAction().execute(input, tracker, output);
         //CreateAction::execute;
         List<ItemTracker> created = tracker.findAll();
         List<ItemTracker> expected = new ArrayList<>();

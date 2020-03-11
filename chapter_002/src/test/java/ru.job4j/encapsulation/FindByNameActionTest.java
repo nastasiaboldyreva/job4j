@@ -40,7 +40,7 @@ public class FindByNameActionTest {
         ItemTracker itemtracker = new ItemTracker("fix bug");
         tracker.add(itemtracker);
         FindByNameAction act = new FindByNameAction();
-        act.execute(new StubInputStatic(List.of("fix bug")), tracker);
+        act.execute(new StubInputStatic(List.of("fix bug")), tracker, output);
 
 
         /**
