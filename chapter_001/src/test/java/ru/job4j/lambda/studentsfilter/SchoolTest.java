@@ -12,19 +12,19 @@ public class SchoolTest {
 
     @Before
     public void studentsList() {
-        List<Student> students = List.of(
-                new Student(90),
-                new Student(80),
-                new Student(70),
-                new Student(60),
-                new Student(75),
-                new Student(65),
-                new Student(55),
-                new Student(45),
-                new Student(60),
-                new Student(50),
-                new Student(40),
-                new Student(30)
+        students = List.of(
+                new Student(90, "Ivanov"),
+                new Student(80, "Petrov"),
+                new Student(70, "Sidorov"),
+                new Student(60, "Kepler"),
+                new Student(75, "Pushkin"),
+                new Student(65, "Lomonosov"),
+                new Student(55, "Newton"),
+                new Student(45, "Rezerford"),
+                new Student(60, "Landau"),
+                new Student(50, "Kapitsa"),
+                new Student(40, "Einstein"),
+                new Student(30, "Archimed")
         );
     }
 
