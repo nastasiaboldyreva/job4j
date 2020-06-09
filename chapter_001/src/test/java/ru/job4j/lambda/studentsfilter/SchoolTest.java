@@ -1,5 +1,6 @@
 package ru.job4j.lambda.studentsfilter;
 
+import org.junit.Before;
 import org.junit.Test;
 import java.util.List;
 import static org.hamcrest.Matchers.is;
@@ -7,15 +8,31 @@ import static org.junit.Assert.assertThat;
 
 public class SchoolTest {
 
+    private List<Student> students;
+
+    @Before
+    public void studentsList() {
+        List<Student> students = List.of(
+                new Student(90),
+                new Student(80),
+                new Student(70),
+                new Student(60),
+                new Student(75),
+                new Student(65),
+                new Student(55),
+                new Student(45),
+                new Student(60),
+                new Student(50),
+                new Student(40),
+                new Student(30)
+        );
+    }
+
+
     @Test
     public void filter10AClass() {
         School school = new School();
-        List<Student> students = List.of(
-               new Student(90),
-               new Student(80),
-               new Student(70),
-               new Student(60)
-        );
+
         List<Student> result = school.collect(
                 students, p -> p.getScore() <= 100);
         List<Student> expected = school.collect(
@@ -29,12 +46,7 @@ public class SchoolTest {
     @Test
     public void filter10BClass() {
         School school = new School();
-        List<Student> students = List.of(
-                new Student(75),
-                new Student(65),
-                new Student(55),
-                new Student(45)
-        );
+
         List<Student> result = school.collect(
                 students, p -> p.getScore() <= 100);
         List<Student> expected = school.collect(
@@ -46,12 +58,7 @@ public class SchoolTest {
     @Test
     public void filter10CClass() {
         School school = new School();
-        List<Student> students = List.of(
-                new Student(60),
-                new Student(50),
-                new Student(40),
-                new Student(30)
-        );
+
         List<Student> result = school.collect(
                 students, p -> p.getScore() <= 100);
         List<Student> expected = school.collect(
