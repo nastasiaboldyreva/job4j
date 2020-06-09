@@ -19,7 +19,12 @@ public class ProfilesTest {
                 new Address("Kazan", "Pushkina", 40, 50)
         );
 
-
+        List<Profile> profiles = List.of(
+                new Profile(new Address("Moscow", "Novoslobodskaya", 10, 20)),
+                new Profile(new Address("Saint-Petersburg", "Nevsky", 20, 30)),
+                new Profile(new Address("Murmansk", "Schmidta", 30, 40)),
+                new Profile(new Address("Kazan", "Pushkina", 40, 50))
+        );
 
         List<Profile> result = ;
         List<Profile> expected = ;

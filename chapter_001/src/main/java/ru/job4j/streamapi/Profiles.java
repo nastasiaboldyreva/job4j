@@ -7,8 +7,9 @@ import java.util.List;
 public class Profiles {
 
     List<Profile> profiles = new ArrayList<>();
-    List<Address> prof = profiles.stream()
-            .map(Profile::getAddress)
-            .collect(Collectors.toList());
-    List<Profiles> listing = new ArrayList<>();
+    public List<Address> collect(List<Profile> profiles) {
+        return profiles.stream()
+                .map(Profile::getAddress)
+                .collect(Collectors.toList());
+    }
 }
